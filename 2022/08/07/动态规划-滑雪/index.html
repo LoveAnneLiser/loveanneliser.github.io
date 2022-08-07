@@ -20,25 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","width":280,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="一个记录我成长的网页">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小卓的个人博客">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="滑雪题目描述Michael 喜欢滑雪。这并不奇怪，因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长的滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子： 123451   2   3   4   516  17  18  19  615  24  25  20  714">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划--滑雪">
+<meta property="og:url" content="http://example.com/2022/08/07/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%BB%91%E9%9B%AA/index.html">
 <meta property="og:site_name" content="小卓的个人博客">
-<meta property="og:description" content="一个记录我成长的网页">
+<meta property="og:description" content="滑雪题目描述Michael 喜欢滑雪。这并不奇怪，因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长的滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子： 123451   2   3   4   516  17  18  19  615  24  25  20  714">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-07T07:08:57.000Z">
+<meta property="article:modified_time" content="2022-08-07T07:26:00.881Z">
 <meta property="article:author" content="卓壹术姬">
+<meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/08/07/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%BB%91%E9%9B%AA/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/07/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%BB%91%E9%9B%AA/","path":"2022/08/07/动态规划-滑雪/","title":"动态规划--滑雪"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>小卓的个人博客</title>
+<title>动态规划--滑雪 | 小卓的个人博客</title>
   
 
 
@@ -68,7 +71,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">小卓的个人博客</h1>
+      <p class="site-title">小卓的个人博客</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">未来可控不可知</p>
@@ -101,7 +104,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -114,6 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BB%91%E9%9B%AA"><span class="nav-number">1.</span> <span class="nav-text">滑雪</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.4.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">1.5.</span> <span class="nav-text">提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3%EF%BC%9A"><span class="nav-number">1.5.1.</span> <span class="nav-text">题解：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E4%BB%A3%E7%A0%81"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">以下是代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -170,16 +174,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/07/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%BB%91%E9%9B%AA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -193,13 +198,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓的个人博客">
+      <meta itemprop="name" content="动态规划--滑雪 | 小卓的个人博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/07/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%BB%91%E9%9B%AA/" class="post-title-link" itemprop="url">动态规划--滑雪</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          动态规划--滑雪
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -223,6 +228,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 </div>
 
         </div>
@@ -232,7 +244,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="滑雪"><a href="#滑雪" class="headerlink" title="滑雪"></a>滑雪</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Michael 喜欢滑雪。这并不奇怪，因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长的滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：</p>
+        <h1 id="滑雪"><a href="#滑雪" class="headerlink" title="滑雪"></a>滑雪</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Michael 喜欢滑雪。这并不奇怪，因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长的滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1   2   3   4   5</span><br><span class="line">16  17  18  19  6</span><br><span class="line">15  24  25  20  7</span><br><span class="line">14  23  22  21  8</span><br><span class="line">13  12  11  10  9</span><br></pre></td></tr></table></figure>
 <p>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度会减小。在上面的例子中，一条可行的滑坡为 $24$－$17$－$16$－$1$（从 $24$ 开始，在 $1$ 结束）。当然    $25$－$24$－$23$－$\ldots$－$3$－$2$－$1$ 更长。事实上，这是最长的一条。</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入的第一行为表示区域的二维数组的行数 $R$ 和列数 $C$。下面是 $R$ 行，每行有 $C$ 个数，代表高度(两个数字之间用 $1$ 个空格间隔)。</p>
@@ -252,7 +264,6 @@
 
 
 
-      
     </div>
 
     
@@ -260,307 +271,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/28/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/" rel="prev" title="数字逻辑">
+                  <i class="fa fa-chevron-left"></i> 数字逻辑
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/28/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓的个人博客">
-      <meta itemprop="description" content="一个记录我成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/28/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/" class="post-title-link" itemprop="url">数字逻辑</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-28 23:33:41" itemprop="dateCreated datePublished" datetime="2022-07-28T23:33:41+08:00">2022-07-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-29 00:00:40" itemprop="dateModified" datetime="2022-07-29T00:00:40+08:00">2022-07-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="数制"><a href="#数制" class="headerlink" title="数制"></a>数制</h2><p>有二进制、八进制、十进制、十六进制</p>
-<h3 id="十进制转化为任意进制："><a href="#十进制转化为任意进制：" class="headerlink" title="十进制转化为任意进制："></a>十进制转化为任意进制：</h3><ul>
-<li>整数部分：相除求余左向左</li>
-<li>小数部分：相乘取整右向右</li>
-</ul>
-<h3 id="二进制与八进制："><a href="#二进制与八进制：" class="headerlink" title="二进制与八进制："></a>二进制与八进制：</h3><p>将3位二进制看作一个整体，等价于1位八进制数</p>
-<h3 id="二进制与十六进制："><a href="#二进制与十六进制：" class="headerlink" title="二进制与十六进制："></a>二进制与十六进制：</h3><p>将4位二进制数看作一个整体，等价于1位十六进制数</p>
-<h3 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h3><p>假设有一个n+1位的二进制数，最高位是符号位，其余的n位是数值位</p>
-<p>【未完待续……】</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓的个人博客">
-      <meta itemprop="description" content="一个记录我成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/" class="post-title-link" itemprop="url">搭建你的个人博客！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-26 21:33:09" itemprop="dateCreated datePublished" datetime="2022-07-26T21:33:09+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-27 10:56:12" itemprop="dateModified" datetime="2022-07-27T10:56:12+08:00">2022-07-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="这是一篇教你如何搭建个人博客的文章"><a href="#这是一篇教你如何搭建个人博客的文章" class="headerlink" title="这是一篇教你如何搭建个人博客的文章"></a>这是一篇教你如何搭建个人博客的文章</h1><h2 id="一-首先需要利用GitHub"><a href="#一-首先需要利用GitHub" class="headerlink" title="一. 首先需要利用GitHub"></a>一. 首先需要利用GitHub</h2><p><a href="https://sm.ms/image/JZurCAeIHVmGyjq" target="_blank"><img src="https://s2.loli.net/2022/07/26/JZurCAeIHVmGyjq.png" /></a></p>
-<p><strong>创建一个为yourusername.github.io的仓库</strong></p>
-<p>这个仓库名一定要是自己的用户名字，设置为public，不要勾选那个README !!!</p>
-<h2 id="二-下载node、git"><a href="#二-下载node、git" class="headerlink" title="二. 下载node、git"></a>二. 下载node、git</h2><p>这边建议去node官网下载，要包括npm。</p>
-<p><a href="https://sm.ms/image/73U5HlmDvh9QVBc" target="_blank"><img src="https://s2.loli.net/2022/07/26/73U5HlmDvh9QVBc.png" ></a></p>
-<p>git可以在官网下载，用Mac的可以用brew下载</p>
-<p>下载完node、npm、git以后，检查一下版本</p>
-<p><a href="https://sm.ms/image/bgEKko7enqc1msA" target="_blank"><img src="https://s2.loli.net/2022/07/26/bgEKko7enqc1msA.png" ></a></p>
-<h2 id="三-下载hero"><a href="#三-下载hero" class="headerlink" title="三. 下载hero"></a>三. 下载hero</h2><p><code>npm install hexo-cli -g</code></p>
-<p>用这个指令下载hexo框架，完事以后出现报错 —&gt;&gt;&gt;</p>
-<p><a href="https://sm.ms/image/8WHArxcdLEGTSYy" target="_blank"><img src="https://s2.loli.net/2022/07/26/8WHArxcdLEGTSYy.png" ></a></p>
-<p>搜了一下，是因为没有sudo权限，所以我们需要用这个指令</p>
-<p><code>sudo chown -R $(whoami) $(npm config get prefix)/&#123;lib/node_modules,bin,share&#125;</code></p>
-<p>执行指令需要输入本机密码，然后再重新执行<code>npm install hexo-cli -g</code>这个指令，hexo就下载好了</p>
-<h2 id="四-初始化以及配置"><a href="#四-初始化以及配置" class="headerlink" title="四. 初始化以及配置"></a>四. 初始化以及配置</h2><p>然后我们需要在一个空的文件夹初始化一下，就像GitHub初始化仓库一样，这个文件夹就是你网站的仓库</p>
-<p>执行指令<code>hexo init XXXXXXXX.github.io</code>  	注意这里XXXXX是你的用户名</p>
-<p>文件夹中多出了这个github.io的文件夹，点进去，就是你hexo的一个小仓库了。</p>
-<p>进去你的文件夹，试着执行<code>hexo server</code></p>
-<p><a href="https://sm.ms/image/cI5vqtlhzM32KTJ" target="_blank"><img src="https://s2.loli.net/2022/07/26/cI5vqtlhzM32KTJ.png" ></a></p>
-<p>下面的网址 <a target="_blank" rel="noopener" href="http://localhost:4000/%E5%B0%B1%E6%98%AF%E4%BD%A0%E7%9A%84%E7%BD%91%E7%AB%99%EF%BC%8C%E4%BD%86%E6%98%AF%E6%AD%A4%E6%97%B6%E5%8F%AA%E6%98%AF%E5%9C%A8%E6%9C%AC%E5%9C%B0%EF%BC%8C%E5%88%AB%E4%BA%BA%E4%B8%8D%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E3%80%82">http://localhost:4000/就是你的网站，但是此时只是在本地，别人不可以访问。</a></p>
-<h2 id="五-在GitHub上部署网址，别人就可以访问了"><a href="#五-在GitHub上部署网址，别人就可以访问了" class="headerlink" title="五. 在GitHub上部署网址，别人就可以访问了"></a>五. 在GitHub上部署网址，别人就可以访问了</h2><p>在部署之前，得先在本地生成ssh密钥，为什么要这么做？如果不这么做就会出现这样的报错<code>err: Error: Spawn failed</code></p>
-<p>进入你的&#x2F;.ssh目录，<code>cd ~/.ssh</code></p>
-<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
-<p>用这行命令，然后连续输入回车，最后会生成这样的乱码：</p>
-<p><a href="https://sm.ms/image/g7f18AnFraCVOIT" target="_blank"><img src="https://s2.loli.net/2022/07/26/g7f18AnFraCVOIT.png" ></a></p>
-<p>然后执行这个指令<code>cat id_rsa.pub</code></p>
-<p>会生成你的密钥，全部复制下来，在GitHub设置上添加密钥</p>
-<p><a href="https://sm.ms/image/nPluojYg3ML6VIO" target="_blank"><img src="https://s2.loli.net/2022/07/26/nPluojYg3ML6VIO.png" ></a></p>
-<p>配置hexo文件夹的config.yml文件：</p>
-<p><a href="https://sm.ms/image/vKPoIa8p1rL7cQ2" target="_blank"><img src="https://s2.loli.net/2022/07/26/vKPoIa8p1rL7cQ2.png" ></a></p>
-<p>这里repo的内容是你在第一步新建仓库的ssh，好像http链接也可以，可以试试。</p>
-<p>接下来执行<code>hexo d</code>指令，意思就是display到GitHub。</p>
-<p>如果你和我一样出现这段报错：</p>
-<p><a href="https://sm.ms/image/6LXiw5b3M7rZ4Jc" target="_blank"><img src="https://s2.loli.net/2022/07/26/6LXiw5b3M7rZ4Jc.png" ></a></p>
-<p>请执行这些指令：</p>
-<p><code>rm -rf .deploy_git</code></p>
-<p><code>git config --global core.autocrlf false</code></p>
-<p><code>hexo clean</code></p>
-<p><code>hexo g</code></p>
-<p><code>hexo d</code></p>
-<p>如果一路绿灯就说明部署好了！这个<code>hexo d</code>指令容易报错，多执行几次试试</p>
-<p>如果你的网站打不开的话，在GitHub仓库设置一下pages</p>
-<p><a href="https://sm.ms/image/6L2WVKUCEmP1Ah4" target="_blank"><img src="https://s2.loli.net/2022/07/26/6L2WVKUCEmP1Ah4.png" ></a></p>
-<p>我这个是已经设置好的，刚点进去一个是有个save，点击后等一会，然后就像我这张图一样出现绿勾勾，那就是部署好了。</p>
-<p>如果你的网站还是404，检查一下仓库名到底是不是用户名，大小写不一样都不行。</p>
-<p>最后，网站部署完后的样子是这样的：</p>
-<p><a href="https://sm.ms/image/ydmFDkhOcW3e6rP" target="_blank"><img src="https://s2.loli.net/2022/07/26/ydmFDkhOcW3e6rP.png" ></a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓的个人博客">
-      <meta itemprop="description" content="一个记录我成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-26 12:21:38" itemprop="dateCreated datePublished" datetime="2022-07-26T12:21:38+08:00">2022-07-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
