@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">6</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">11</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">7</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">12</span></a></li>
   </ul>
 </nav>
 
@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -137,7 +137,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -171,6 +171,92 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/14/leetcode-493-%E7%BF%BB%E8%BD%AC%E5%AF%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/14/leetcode-493-%E7%BF%BB%E8%BD%AC%E5%AF%B9/" class="post-title-link" itemprop="url">leetcode 493.翻转对</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-14 14:11:23 / 修改时间：14:23:41" itemprop="dateCreated datePublished" datetime="2022-08-14T14:11:23+08:00">2022-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>原题链接: <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-pairs/">翻转对</a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题是用<strong>归并排序</strong>的方法，归并排序是先找到临界点mid，然后开始<strong>递归</strong>，left<del>mid的数据排好序，mid+1</del>right的数据排好序，再在合并之前判断nums[i]和nums[j] * 2的大小，随后就是归并。<br>这道题要注意的是<strong>长整数型</strong>！搞了好久才搞出来….</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="type">long</span> tmp[<span class="number">50010</span>]; <span class="comment">// 用一个临时数组存放结果</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">merge_sorte</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums,<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left &gt;= right) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = (left + right) / <span class="number">2</span>; </span><br><span class="line">        <span class="type">int</span> res = <span class="built_in">merge_sorte</span>(nums, left, mid) + <span class="built_in">merge_sorte</span>(nums, mid + <span class="number">1</span>, right); <span class="comment">//递归</span></span><br><span class="line">        <span class="type">int</span> i = left, j = mid + <span class="number">1</span>, k = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span>((<span class="type">long</span> <span class="type">long</span>)nums[i] &gt; <span class="number">2</span> * (<span class="type">long</span> <span class="type">long</span>)nums[j]) &#123;</span><br><span class="line">                res += mid - i + <span class="number">1</span>; <span class="comment">// 公式</span></span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//上面就是判断过程 是重点 下面的是归并排序的合并模版</span></span><br><span class="line">      </span><br><span class="line">        i = left;</span><br><span class="line">        j = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= right ) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt; nums[j]) &#123;</span><br><span class="line">                tmp[k++] = nums[i++];</span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                tmp[k++] = nums[j++];     </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid) tmp[k++] = nums[i++];</span><br><span class="line">        <span class="keyword">while</span>(j &lt;= right) tmp[k++] = nums[j++];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = left,j = <span class="number">0</span> ; i &lt;= right;i++,j++) &#123;</span><br><span class="line">            nums[i] = tmp[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reversePairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">merge_sorte</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -699,9 +785,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-10 17:09:23 / 修改时间：19:56:16" itemprop="dateCreated datePublished" datetime="2022-08-10T17:09:23+08:00">2022-08-10</time>
+      <time title="创建时间：2022-08-10 17:09:23" itemprop="dateCreated datePublished" datetime="2022-08-10T17:09:23+08:00">2022-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-14 14:19:49" itemprop="dateModified" datetime="2022-08-14T14:19:49+08:00">2022-08-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1040,128 +1132,6 @@
 <h3 id="二进制与十六进制："><a href="#二进制与十六进制：" class="headerlink" title="二进制与十六进制："></a>二进制与十六进制：</h3><p>将4位二进制数看作一个整体，等价于1位十六进制数</p>
 <h3 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h3><p>假设有一个n+1位的二进制数，最高位是符号位，其余的n位是数值位</p>
 <p>【未完待续……】</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓今天debug了吗">
-      <meta itemprop="description" content="一个记录成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/" class="post-title-link" itemprop="url">搭建你的个人博客！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-26 21:33:09" itemprop="dateCreated datePublished" datetime="2022-07-26T21:33:09+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-27 10:56:12" itemprop="dateModified" datetime="2022-07-27T10:56:12+08:00">2022-07-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="这是一篇教你如何搭建个人博客的文章"><a href="#这是一篇教你如何搭建个人博客的文章" class="headerlink" title="这是一篇教你如何搭建个人博客的文章"></a>这是一篇教你如何搭建个人博客的文章</h1><h2 id="一-首先需要利用GitHub"><a href="#一-首先需要利用GitHub" class="headerlink" title="一. 首先需要利用GitHub"></a>一. 首先需要利用GitHub</h2><p><a href="https://sm.ms/image/JZurCAeIHVmGyjq" target="_blank"><img src="https://s2.loli.net/2022/07/26/JZurCAeIHVmGyjq.png" /></a></p>
-<p><strong>创建一个为yourusername.github.io的仓库</strong></p>
-<p>这个仓库名一定要是自己的用户名字，设置为public，不要勾选那个README !!!</p>
-<h2 id="二-下载node、git"><a href="#二-下载node、git" class="headerlink" title="二. 下载node、git"></a>二. 下载node、git</h2><p>这边建议去node官网下载，要包括npm。</p>
-<p><a href="https://sm.ms/image/73U5HlmDvh9QVBc" target="_blank"><img src="https://s2.loli.net/2022/07/26/73U5HlmDvh9QVBc.png" ></a></p>
-<p>git可以在官网下载，用Mac的可以用brew下载</p>
-<p>下载完node、npm、git以后，检查一下版本</p>
-<p><a href="https://sm.ms/image/bgEKko7enqc1msA" target="_blank"><img src="https://s2.loli.net/2022/07/26/bgEKko7enqc1msA.png" ></a></p>
-<h2 id="三-下载hero"><a href="#三-下载hero" class="headerlink" title="三. 下载hero"></a>三. 下载hero</h2><p><code>npm install hexo-cli -g</code></p>
-<p>用这个指令下载hexo框架，完事以后出现报错 —&gt;&gt;&gt;</p>
-<p><a href="https://sm.ms/image/8WHArxcdLEGTSYy" target="_blank"><img src="https://s2.loli.net/2022/07/26/8WHArxcdLEGTSYy.png" ></a></p>
-<p>搜了一下，是因为没有sudo权限，所以我们需要用这个指令</p>
-<p><code>sudo chown -R $(whoami) $(npm config get prefix)/&#123;lib/node_modules,bin,share&#125;</code></p>
-<p>执行指令需要输入本机密码，然后再重新执行<code>npm install hexo-cli -g</code>这个指令，hexo就下载好了</p>
-<h2 id="四-初始化以及配置"><a href="#四-初始化以及配置" class="headerlink" title="四. 初始化以及配置"></a>四. 初始化以及配置</h2><p>然后我们需要在一个空的文件夹初始化一下，就像GitHub初始化仓库一样，这个文件夹就是你网站的仓库</p>
-<p>执行指令<code>hexo init XXXXXXXX.github.io</code>  	注意这里XXXXX是你的用户名</p>
-<p>文件夹中多出了这个github.io的文件夹，点进去，就是你hexo的一个小仓库了。</p>
-<p>进去你的文件夹，试着执行<code>hexo server</code></p>
-<p><a href="https://sm.ms/image/cI5vqtlhzM32KTJ" target="_blank"><img src="https://s2.loli.net/2022/07/26/cI5vqtlhzM32KTJ.png" ></a></p>
-<p>下面的网址 <a target="_blank" rel="noopener" href="http://localhost:4000/%E5%B0%B1%E6%98%AF%E4%BD%A0%E7%9A%84%E7%BD%91%E7%AB%99%EF%BC%8C%E4%BD%86%E6%98%AF%E6%AD%A4%E6%97%B6%E5%8F%AA%E6%98%AF%E5%9C%A8%E6%9C%AC%E5%9C%B0%EF%BC%8C%E5%88%AB%E4%BA%BA%E4%B8%8D%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E3%80%82">http://localhost:4000/就是你的网站，但是此时只是在本地，别人不可以访问。</a></p>
-<h2 id="五-在GitHub上部署网址，别人就可以访问了"><a href="#五-在GitHub上部署网址，别人就可以访问了" class="headerlink" title="五. 在GitHub上部署网址，别人就可以访问了"></a>五. 在GitHub上部署网址，别人就可以访问了</h2><p>在部署之前，得先在本地生成ssh密钥，为什么要这么做？如果不这么做就会出现这样的报错<code>err: Error: Spawn failed</code></p>
-<p>进入你的&#x2F;.ssh目录，<code>cd ~/.ssh</code></p>
-<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
-<p>用这行命令，然后连续输入回车，最后会生成这样的乱码：</p>
-<p><a href="https://sm.ms/image/g7f18AnFraCVOIT" target="_blank"><img src="https://s2.loli.net/2022/07/26/g7f18AnFraCVOIT.png" ></a></p>
-<p>然后执行这个指令<code>cat id_rsa.pub</code></p>
-<p>会生成你的密钥，全部复制下来，在GitHub设置上添加密钥</p>
-<p><a href="https://sm.ms/image/nPluojYg3ML6VIO" target="_blank"><img src="https://s2.loli.net/2022/07/26/nPluojYg3ML6VIO.png" ></a></p>
-<p>配置hexo文件夹的config.yml文件：</p>
-<p><a href="https://sm.ms/image/vKPoIa8p1rL7cQ2" target="_blank"><img src="https://s2.loli.net/2022/07/26/vKPoIa8p1rL7cQ2.png" ></a></p>
-<p>这里repo的内容是你在第一步新建仓库的ssh，好像http链接也可以，可以试试。</p>
-<p>接下来执行<code>hexo d</code>指令，意思就是display到GitHub。</p>
-<p>如果你和我一样出现这段报错：</p>
-<p><a href="https://sm.ms/image/6LXiw5b3M7rZ4Jc" target="_blank"><img src="https://s2.loli.net/2022/07/26/6LXiw5b3M7rZ4Jc.png" ></a></p>
-<p>请执行这些指令：</p>
-<p><code>rm -rf .deploy_git</code></p>
-<p><code>git config --global core.autocrlf false</code></p>
-<p><code>hexo clean</code></p>
-<p><code>hexo g</code></p>
-<p><code>hexo d</code></p>
-<p>如果一路绿灯就说明部署好了！这个<code>hexo d</code>指令容易报错，多执行几次试试</p>
-<p>如果你的网站打不开的话，在GitHub仓库设置一下pages</p>
-<p><a href="https://sm.ms/image/6L2WVKUCEmP1Ah4" target="_blank"><img src="https://s2.loli.net/2022/07/26/6L2WVKUCEmP1Ah4.png" ></a></p>
-<p>我这个是已经设置好的，刚点进去一个是有个save，点击后等一会，然后就像我这张图一样出现绿勾勾，那就是部署好了。</p>
-<p>如果你的网站还是404，检查一下仓库名到底是不是用户名，大小写不一样都不行。</p>
-<p>最后，网站部署完后的样子是这样的：</p>
-<p><a href="https://sm.ms/image/ydmFDkhOcW3e6rP" target="_blank"><img src="https://s2.loli.net/2022/07/26/ydmFDkhOcW3e6rP.png" ></a></p>
 
       
     </div>
