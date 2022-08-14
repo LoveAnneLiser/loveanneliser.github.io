@@ -2602,11 +2602,11 @@ hr {
 }
 @media (min-width: 992px) {
   .sidebar-active {
-    padding-left: 280px;
+    padding-left: 260px;
   }
 }
 .sidebar {
-  left: -280px;
+  left: -260px;
 }
 .sidebar-active .sidebar {
   left: 0;
@@ -2618,7 +2618,7 @@ hr {
   position: fixed;
   top: 0;
   transition: all 0.2s ease-out;
-  width: 280px;
+  width: 260px;
   z-index: 20;
 }
 .sidebar a {
@@ -2640,7 +2640,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #6c1a58;
+  background: #247eff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
