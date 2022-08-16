@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">10</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">16</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">11</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">17</span></a></li>
   </ul>
 </nav>
 
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -139,7 +139,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -182,6 +182,91 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/16/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/16/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">用两个栈实现队列</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-16 13:52:43 / 修改时间：14:03:17" itemprop="dateCreated datePublished" datetime="2022-08-16T13:52:43+08:00">2022-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>原题链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">用两个栈实现队列</a></p>
+<p><img src="https://s2.loli.net/2022/08/16/OKXg76I15PyrdzL.png"></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用一个栈stack1存放入队列的数，当要删除队列的头元素时，stack的栈底元素，所以我们需要另一个栈把stack1的元素倒放进去， stack2的栈顶元素就是要删除的元素。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CQueue</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; head;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; tail;</span><br><span class="line">    <span class="built_in">CQueue</span>() &#123;   </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">appendTail</span><span class="params">(<span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        tail.<span class="built_in">push</span>(value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">deleteHead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(tail.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">while</span>(!tail.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> he = tail.<span class="built_in">top</span>();</span><br><span class="line">            tail.<span class="built_in">pop</span>();</span><br><span class="line">            head.<span class="built_in">push</span>(he);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> res = head.<span class="built_in">top</span>();</span><br><span class="line">        head.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">while</span>(!head.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="type">int</span> he = head.<span class="built_in">top</span>();</span><br><span class="line">            head.<span class="built_in">pop</span>();</span><br><span class="line">            tail.<span class="built_in">push</span>(he);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/16/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -212,7 +297,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-08-16 11:54:49 / 修改时间：12:02:33" itemprop="dateCreated datePublished" datetime="2022-08-16T11:54:49+08:00">2022-08-16</time>
+      <time title="创建时间：2022-08-16 11:54:49 / 修改时间：13:51:47" itemprop="dateCreated datePublished" datetime="2022-08-16T11:54:49+08:00">2022-08-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -234,7 +319,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h3><p>输入一棵二叉树前序遍历和中序遍历的结果，请重建该二叉树。</p>
+          <p>原题链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/">重建二叉树</a></p>
+<h3 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h3><p>输入一棵二叉树前序遍历和中序遍历的结果，请重建该二叉树。</p>
 <p><strong>注意</strong>:</p>
 <ul>
 <li>二叉树中每个节点的值都互不相同；</li>
@@ -991,137 +1077,6 @@
 <p>macos，写完代码了<code>git commit</code> <code>git push</code>代码，在ubuntu环境下直接<code>git pull</code>一下就可以运行了，十分方便。</p>
 <p>clion左下角可以直接更换分支。</p>
 <p><img src="https://s2.loli.net/2022/08/11/ADMz37OJtdRIVZh.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F6-S081-LAb1-Xv6-and-Unix-utilities/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓今天debug了吗">
-      <meta itemprop="description" content="一个记录成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F6-S081-LAb1-Xv6-and-Unix-utilities/" class="post-title-link" itemprop="url">操作系统6.S081 LAb1: Xv6 and Unix utilities</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-08-10 23:20:43" itemprop="dateCreated datePublished" datetime="2022-08-10T23:20:43+08:00">2022-08-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-14 15:06:52" itemprop="dateModified" datetime="2022-08-14T15:06:52+08:00">2022-08-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/6-S081%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">6.S081操作系统</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前面的话："><a href="#前面的话：" class="headerlink" title="前面的话："></a>前面的话：</h2><p>​		刚自学了一点操作系统知识，总觉得对一些概念不是很理解，于是打算开始实验之路。</p>
-<h2 id="课程介绍：这门课是mit本科生操作系统课程，有丰富的教学资源和足够锻炼编程能力的lab，这门课对于计算机基础的理解十分重要。"><a href="#课程介绍：这门课是mit本科生操作系统课程，有丰富的教学资源和足够锻炼编程能力的lab，这门课对于计算机基础的理解十分重要。" class="headerlink" title="课程介绍：这门课是mit本科生操作系统课程，有丰富的教学资源和足够锻炼编程能力的lab，这门课对于计算机基础的理解十分重要。"></a>课程介绍：这门课是mit本科生操作系统课程，有丰富的教学资源和足够锻炼编程能力的lab，这门课对于计算机基础的理解十分重要。</h2><p>网址：<a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2021/schedule.html">https://pdos.csail.mit.edu/6.828/2021/schedule.html</a></p>
-<h2 id="一-实验环境的配置"><a href="#一-实验环境的配置" class="headerlink" title="一.实验环境的配置"></a>一.实验环境的配置</h2><p>实验指导书上面说必须使用x86机器进行实验，但是我在M1pro的芯片上可以完美运行实验，不过我们需要进行一些配置。</p>
-<p>如果你已经有一个ubuntu系统，请直接跳到4.</p>
-<p>实验要求的ubuntu系统为20.04</p>
-<h3 id="1-下载docker"><a href="#1-下载docker" class="headerlink" title="1.下载docker"></a>1.下载docker</h3><p><img src="https://s2.loli.net/2022/08/10/PcO8dT27DRWSrNF.png"></p>
-<p>选择desktop，左边的那个下载。</p>
-<p>打开终端，输入<code>docker --version</code>查看自己的docker是否安装好</p>
-<h3 id="2-配置镜像源："><a href="#2-配置镜像源：" class="headerlink" title="2. 配置镜像源："></a>2. 配置镜像源：</h3><p><img src="https://s2.loli.net/2022/08/10/9nTCwx7Bhqk8aRd.png"></p>
-<p>修改Docker Engine：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://hub-mirror.c.163.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://mirror.baidubce.com&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>或者使用中科大镜像：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">     <span class="string">&quot;https://docker.mirrors.ustc.edu.cn/&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>然后执行这个命令：<code>docker pull ubuntu</code></p>
-<p>再执行<code>docker image ls</code>查看镜像是否生成</p>
-<p><img src="https://s2.loli.net/2022/08/10/2rKUxjypgdORuY3.png"></p>
-<h3 id="3-创建容器并配置ubuntu"><a href="#3-创建容器并配置ubuntu" class="headerlink" title="3. 创建容器并配置ubuntu"></a>3. 创建容器并配置ubuntu</h3><p>使用<code>docker run -i -t --name test0s ubuntu bash </code> 创建一个容器，对容器和镜像的概念不太清楚的朋友可以搜一下这两个东西。</p>
-<p><img src="https://s2.loli.net/2022/08/10/hIaXsr4V9S7oN18.png"></p>
-<p>麻了..本来想创建叫testos的，结果写成了0s，无所谓啦。</p>
-<p>这里意思就是创建一个名称是test0s的ubuntu系统。</p>
-<p>从截图来看，我们已经创建好ubuntu了，此时仍然需要一些配置。</p>
-<p>接着，我们执行这个命令：<code>apt-get update</code>,  然后安装vim： <code>apt-get install vim</code></p>
-<p> 进入到<code>/etc/apt/</code>, 新建一个source.list的文件， 或者直接<code>vim /etc/apt/etc/apt/source.list  </code>进行配置。</p>
-<p>添加这些软件源：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse </span><br></pre></td></tr></table></figure>
-
-<p>再然后<code>apt-get update</code>，软件源的配置就完成了, 其实当配置完镜像源后速度就快了许多。</p>
-<p>安装完这些大概花了30分钟甚至更久。</p>
-<h3 id="4-配置实验所需资源"><a href="#4-配置实验所需资源" class="headerlink" title="4. 配置实验所需资源"></a>4. 配置实验所需资源</h3><p><code>sudo apt-get install git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu </code> (没有一次成功就多执行几次， 再不成功就先去克隆仓库，然后重新执行)</p>
-<p><code>sudo apt-get remove qemu-system-misc</code></p>
-<p><code>sudo apt-get install qemu-system-misc=1:4.2-3ubuntu6</code></p>
-<p>上面这三个多执行几次，一定会成功，亲测有效</p>
-<p>完成这三个步骤以后，</p>
-<p><code>git clone git://g.csail.mit.edu/xv6-labs-2021</code></p>
-<p><code>cd xv6-labs-2021</code></p>
-<p><code>git checkout util</code></p>
-<p><code>make qemu</code></p>
-<p><code>ls</code></p>
-<p><img src="https://s2.loli.net/2022/08/10/yYCHG9X6lQMkjK1.png"></p>
-<p><strong>退出qemu环境的命令：ctrl + a 松手，再按x</strong></p>
-<p><strong>这样就完成实验配件的配置啦！</strong></p>
 
       
     </div>
