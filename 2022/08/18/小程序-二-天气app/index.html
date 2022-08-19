@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tb.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tb.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","Muse | Mist":260,"width":260,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="实验目标1、掌握服务器域名配置和临时服务器部署；2、掌握 wx.request 接口的用法。 天气查询小程序准备工作API密钥申请首先，我们需要注册和风天气的用户，然后点击控制台，此时用户还没有应用，点击创建应用，选择免费开发版，设置完应用名称以后点击web api,然后为自己的key取名，创建完应用以后保存下自己的key，在程序中会用到。   服务器域名设置为了方便以后的程序正常调用API，我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序(二)--天气app">
+<meta property="og:url" content="http://example.com/2022/08/18/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8C-%E5%A4%A9%E6%B0%94app/index.html">
+<meta property="og:site_name" content="小卓今天debug了吗">
+<meta property="og:description" content="实验目标1、掌握服务器域名配置和临时服务器部署；2、掌握 wx.request 接口的用法。 天气查询小程序准备工作API密钥申请首先，我们需要注册和风天气的用户，然后点击控制台，此时用户还没有应用，点击创建应用，选择免费开发版，设置完应用名称以后点击web api,然后为自己的key取名，创建完应用以后保存下自己的key，在程序中会用到。   服务器域名设置为了方便以后的程序正常调用API，我们">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/08/18/jFanHuDJRUEyBxI.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/18/iBlKRwAZOQHg6uh.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/19/4RdlJBhK5Puw1sf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/19/R9Y2fBdNcSMXzQr.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/17/Yw1CA2PFV5JjrMR.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/17/COoj4nXiqzflpVK.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/19/jM5VBR9ZqkYoG8h.png">
+<meta property="article:published_time" content="2022-08-18T06:25:21.000Z">
+<meta property="article:modified_time" content="2022-08-19T07:47:15.023Z">
+<meta property="article:author" content="卓壹术姬">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/18/jFanHuDJRUEyBxI.png">
+
+
+<link rel="canonical" href="http://example.com/2022/08/18/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8C-%E5%A4%A9%E6%B0%94app/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/18/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8C-%E5%A4%A9%E6%B0%94app/","path":"2022/08/18/小程序-二-天气app/","title":"小程序(二)--天气app"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>小程序(二)--天气app | 小卓今天debug了吗</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小卓今天debug了吗</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">未来可控不可知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">21</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">实验目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">天气查询小程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#API%E5%AF%86%E9%92%A5%E7%94%B3%E8%AF%B7"><span class="nav-number">2.1.1.</span> <span class="nav-text">API密钥申请</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%9F%E5%90%8D%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">服务器域名设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">项目创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.3.</span> <span class="nav-text">视图设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%8C%BA%E5%9F%9F%EF%BC%9A"><span class="nav-number">2.3.1.</span> <span class="nav-text">页面区域：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E5%AE%B9%E5%99%A8%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.3.2.</span> <span class="nav-text">整体容器设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E4%B8%80%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E5%9C%B0%E5%8C%BA%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.3.3.</span> <span class="nav-text">区域一设计——地区选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E4%BA%8C%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E6%B8%A9%E5%BA%A6%E5%92%8C%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF"><span class="nav-number">2.3.4.</span> <span class="nav-text">区域二设计——温度和天气信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E4%B8%89%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E5%A4%A9%E6%B0%94%E5%9B%BE%E6%A0%87"><span class="nav-number">2.3.5.</span> <span class="nav-text">区域三设计——天气图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E5%9B%9B%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E6%9B%B4%E8%AF%A6%E7%BB%86%E7%9A%84%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF"><span class="nav-number">2.3.6.</span> <span class="nav-text">区域四设计——更详细的天气信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.4.</span> <span class="nav-text">逻辑实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%9C%81%E5%B8%82%E5%8C%BA%E4%BF%A1%E6%81%AF"><span class="nav-number">2.4.1.</span> <span class="nav-text">更新省市区信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%AE%9E%E5%86%B5%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE"><span class="nav-number">2.4.2.</span> <span class="nav-text">获取实况天气数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E9%A1%B5%E9%9D%A2%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF"><span class="nav-number">2.4.3.</span> <span class="nav-text">更新页面天气信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BD%93%E4%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">问题总结与体会</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="卓壹术姬"
+      src="/images/tx.gif">
+  <p class="site-author-name" itemprop="name">卓壹术姬</p>
+  <div class="site-description" itemprop="description">一个记录成长的网页</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LoveAnneLiser" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LoveAnneLiser" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8C-%E5%A4%A9%E6%B0%94app/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="小程序(二)--天气app | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          小程序(二)--天气app
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-18 14:25:21" itemprop="dateCreated datePublished" datetime="2022-08-18T14:25:21+08:00">2022-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-19 15:47:15" itemprop="dateModified" datetime="2022-08-19T15:47:15+08:00">2022-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">小程序开发</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="实验目标"><a href="#实验目标" class="headerlink" title="实验目标"></a>实验目标</h2><p>1、掌握服务器域名配置和临时服务器部署；2、掌握 wx.request 接口的用法。</p>
+<h2 id="天气查询小程序"><a href="#天气查询小程序" class="headerlink" title="天气查询小程序"></a>天气查询小程序</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="API密钥申请"><a href="#API密钥申请" class="headerlink" title="API密钥申请"></a>API密钥申请</h4><p>首先，我们需要注册和风天气的用户，然后点击控制台，此时用户还没有应用，点击创建应用，选择免费开发版，设置完应用名称以后点击web api,然后为自己的key取名，创建完应用以后保存下自己的key，在程序中会用到。</p>
+<p><img src="https://s2.loli.net/2022/08/18/jFanHuDJRUEyBxI.png"></p>
+<p><img src="https://s2.loli.net/2022/08/18/iBlKRwAZOQHg6uh.png"></p>
+<h4 id="服务器域名设置"><a href="#服务器域名设置" class="headerlink" title="服务器域名设置"></a>服务器域名设置</h4><p>为了方便以后的程序正常调用API，我们需要在小程序界面中添加服务器域名。</p>
+<p>点击<strong>开发管理</strong>—&gt;&gt;<strong>开发设置</strong>，往下翻会看到一个服务器域名，我们需要添加的是request合法域名。点击修改，按照和风天气官方文档写的那样，添加<a target="_blank" rel="noopener" href="https://devapi.qweather.com/">https://devapi.qweather.com</a> 和 <a target="_blank" rel="noopener" href="https://geoapi.qweather.com/">https://geoapi.qweather.com</a></p>
+<p><img src="https://s2.loli.net/2022/08/19/4RdlJBhK5Puw1sf.png" alt="截屏2022-08-19 14.54.26.png"></p>
+<p>在微信小程序工具中点击详情，查看项目配置，可以看到我们添加了域名信息</p>
+<p><img src="https://s2.loli.net/2022/08/19/R9Y2fBdNcSMXzQr.png"></p>
+<h3 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h3><p><img src="https://s2.loli.net/2022/08/17/Yw1CA2PFV5JjrMR.png"></p>
+<p>登陆自己的小程序开发微信号，在AppID会自动显示出自己的ID，如果没有可以去自己的小程序Web界面，点击<strong>开发管理—&gt;开发设置</strong>查看自己的ID号。</p>
+<p>项目名称和目录自己选择，开发模式点击小程序，后端服务选择不使用云服务，模版选择javascript。点击确定，进入到开发界面，会自动生成pages、utils等文件，可以全部删除，后续再自己创建。</p>
+<p><img src="https://s2.loli.net/2022/08/17/COoj4nXiqzflpVK.png"></p>
+<h3 id="视图设计"><a href="#视图设计" class="headerlink" title="视图设计"></a>视图设计</h3><h4 id="页面区域："><a href="#页面区域：" class="headerlink" title="页面区域："></a>页面区域：</h4><ul>
+<li><p>第一个是地区选择器，用于更换想要查询的地区。</p>
+</li>
+<li><p>第二个区域用于显示当时的温度和天气状态，例如多云、晴。</p>
+</li>
+<li><p>第三个区域用于显示天气的图标。</p>
+</li>
+<li><p>第四个区域用于显示更详细的天气信息，例如湿度、风力。</p>
+</li>
+<li><p>区域一的会用到的组件是<code>picker</code></p>
+</li>
+<li><p>区域二会用到的组件是<code>text</code></p>
+</li>
+<li><p>区域三会用到<code>text</code></p>
+</li>
+<li><p>区域四会用到<code>&lt;view&gt;</code>组件，并定义class &#x3D; ’detail‘</p>
+<ul>
+<li>在此区域中我们需要设置单元行和单元格</li>
+<li>单元行用到的组件是4个<code>&lt;view&gt;</code>组件，并定义class &#x3D; ‘bar‘</li>
+<li>单元格用到的组件是3个<code>&lt;view&gt;</code>组件，并定义class &#x3D; ‘box’</li>
+</ul>
+</li>
+</ul>
+<h4 id="整体容器设计"><a href="#整体容器设计" class="headerlink" title="整体容器设计"></a>整体容器设计</h4><p>首先定义页面容器<code>&lt;view class = &#39;container&#39;&gt;</code>，在index.wxss文件中设计container的布局，将其设置为高度为100视窗，flex布局模式，垂直布局，水平方向居中。</p>
+<h4 id="区域一设计——地区选择器"><a href="#区域一设计——地区选择器" class="headerlink" title="区域一设计——地区选择器"></a>区域一设计——地区选择器</h4><p>需要使用<code>&lt;picker&gt;</code>组件实现一个地区选择器，用户可切换选择其他城市</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picker</span> <span class="attr">mode</span> = <span class="string">&#x27;region&#x27;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">view</span>&gt;</span>北京市<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picker</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="区域二设计——温度和天气信息"><a href="#区域二设计——温度和天气信息" class="headerlink" title="区域二设计——温度和天气信息"></a>区域二设计——温度和天气信息</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span>&gt;</span>20度 多云<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以先不用将温度和天气信息设置为变量，而是简单的设置为20度 多云</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text&#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">80</span>rpx;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#3C5F81</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在index.wxss文件中设置文本的样式，80rpx，我将字体设置为蓝色</p>
+<h4 id="区域三设计——天气图标"><a href="#区域三设计——天气图标" class="headerlink" title="区域三设计——天气图标"></a>区域三设计——天气图标</h4><p>这个区域的设计相对来说比较简单，在实验一中我们也使用过。首先我们需要使用<code>&lt;image&gt;</code>组件</p>
+<p><code>&lt;image src = &#39;/images/weather_icon_s2/999.png&#39;&gt;&lt;/image&gt;</code></p>
+<p>现将图标设置为999.png文件，呈现出来的是N&#x2F;A</p>
+<p>图标需要我们在和风天气官网下载，并一起存到与pages文件同级别的images文件中。</p>
+<h4 id="区域四设计——更详细的天气信息"><a href="#区域四设计——更详细的天气信息" class="headerlink" title="区域四设计——更详细的天气信息"></a>区域四设计——更详细的天气信息</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;detail&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>湿度<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>气压<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>能见度<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 %<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 hPa<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 Km<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>风向<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>风速<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>风力<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 Km/h<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 级<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们先将所有的参数设置为0</p>
+<p>在index.wxss中设置区域四的布局</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.detail</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.bar</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">20</span>rpx <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">33.3%</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这样小程序的布局就大致完成了，接下来我们要解决的是逻辑部分，也就是如何更换地区并得到正确的天气信息。</p>
+<h3 id="逻辑实现"><a href="#逻辑实现" class="headerlink" title="逻辑实现"></a>逻辑实现</h3><h4 id="更新省市区信息"><a href="#更新省市区信息" class="headerlink" title="更新省市区信息"></a>更新省市区信息</h4><p>刚刚我们仅是实现了布局页面，目前还不可以更改地区位置，所以我们需要在picker组件下自定义一个bindchange事件,用于监听选项变化。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picker</span> <span class="attr">mode</span> = <span class="string">&#x27;region&#x27;</span> <span class="attr">bindchange</span> = <span class="string">&#x27;changeRegion&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;region&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picker</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们会发现地区选择器的返回结果是一个数组，所以我们可以在index.js文件中的data中定义初始的位置，也就是省、市、区。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">data</span>: &#123;</span><br><span class="line">  <span class="attr">region</span>:[<span class="string">&#x27;北京市&#x27;</span>,<span class="string">&#x27;北京市&#x27;</span>,<span class="string">&#x27;东城区&#x27;</span>]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>我们将初始位置定义为北京市东城区。学习到这里我在想，假如有一个获取实时定位的API，那利用这个API我们是不是可以将region变量获取到实际上所在位置，那就更像手机里的天气app了。(一个猜想，不一定对)</p>
+<h4 id="获取实况天气数据"><a href="#获取实况天气数据" class="headerlink" title="获取实况天气数据"></a>获取实况天气数据</h4><p>在index.js文件中编写获取天气数据的函数,由于2021年后和风天气只能通过城市的locationID才能获取信息，我们只好先利用<a target="_blank" rel="noopener" href="https://dev.qweather.com/docs/api/geo/">城市服务获取</a>，在这里我们会先用到城市搜索服务的API得到ID号，然后将ID号返回给实时天气API。这里我们调用API时需要输入和风天气的URL，也要输入自己的key，这样我们就能获取到实时天气信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">getWeather</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="variable language_">this</span>;</span><br><span class="line">    wx.<span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;https://geoapi.qweather.com/v2/city/lookup?&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: &#123;</span><br><span class="line">        <span class="attr">location</span>: <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">region</span>[<span class="number">2</span>],</span><br><span class="line">        <span class="attr">adm</span>: <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">region</span>[<span class="number">1</span>],</span><br><span class="line">        <span class="attr">key</span>:<span class="string">&#x27;00cae4fb53ff4bdd976ed4bc6bb28ad9&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line">        that.<span class="title function_">setData</span>(&#123;<span class="attr">weatherid</span>: res.<span class="property">data</span>.<span class="property">location</span>[<span class="number">0</span>].<span class="property">id</span>&#125;)</span><br><span class="line">        wx.<span class="title function_">request</span>(&#123;</span><br><span class="line">          <span class="attr">url</span>: <span class="string">&#x27;https://devapi.qweather.com/v7/weather/now?&#x27;</span>,</span><br><span class="line">          <span class="attr">data</span>:&#123;</span><br><span class="line">            <span class="attr">location</span>: that.<span class="property">data</span>.<span class="property">weatherid</span>,</span><br><span class="line">            <span class="attr">key</span>:<span class="string">&#x27;00cae4fb53ff4bdd976ed4bc6bb28ad9&#x27;</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line">            that.<span class="title function_">setData</span>(&#123;<span class="attr">weather</span>:res.<span class="property">data</span>.<span class="property">now</span>&#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<p>将上述函数在生命周期函数onload和changeRegion函数调用，用于更新天气。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">changeRegion</span>:<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">region</span>:e.<span class="property">detail</span>.<span class="property">value</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">getWeather</span>();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">onLoad</span>: <span class="keyword">function</span> (<span class="params">options</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">getWeather</span>();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="更新页面天气信息"><a href="#更新页面天气信息" class="headerlink" title="更新页面天气信息"></a>更新页面天气信息</h4><p>因为我们在getweather函数中把得到的天气信息给了weather变量，所以为了得到页面详细的天气信息，我们需要修改index.wxml中的内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.humidity&#125;&#125;%<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.pressure&#125;&#125;hPa<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.vis&#125;&#125;Km<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.windDir&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.windSpeed&#125;&#125;Km/h<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.windScale&#125;&#125;级<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span>    </span><br></pre></td></tr></table></figure>
+
+<p>上述内容我们将风速湿度的信息设置为一个变量，通过weather获取。</p>
+<p>最后我们就完成实验啦！不过在完成实验后我发现天气图标有的可以渲染出来，有的不行，最后发现时返回的icon参数和图标不匹配，修改图片名称就行了，比如多云是151，我们需要找到很像多云的图标，修改成151.png即可。</p>
+<p><img src="https://s2.loli.net/2022/08/19/jM5VBR9ZqkYoG8h.png"></p>
+<h2 id="问题总结与体会"><a href="#问题总结与体会" class="headerlink" title="问题总结与体会"></a>问题总结与体会</h2><p>之前在油管上看到过用Django去做一个天气app，也是像这个实验一样调用API，当时就对这个很感兴趣了，但是迟迟不敢试，因为害怕配置环境。这次的实验让我明白了如何调用API做出一个成型的项目，并且在成长中多加思考，我对小程序的学习更感兴趣了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%B8%80/" rel="prev" title="小程序(一)——获取用户头像和昵称">
+                  <i class="fa fa-chevron-left"></i> 小程序(一)——获取用户头像和昵称
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓壹术姬</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

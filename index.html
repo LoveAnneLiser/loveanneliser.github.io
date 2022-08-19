@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">20</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">21</span></a></li>
   </ul>
 </nav>
 
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,6 +173,183 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8C-%E5%A4%A9%E6%B0%94app/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/18/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8C-%E5%A4%A9%E6%B0%94app/" class="post-title-link" itemprop="url">小程序(二)--天气app</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-18 14:25:21" itemprop="dateCreated datePublished" datetime="2022-08-18T14:25:21+08:00">2022-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-19 15:47:15" itemprop="dateModified" datetime="2022-08-19T15:47:15+08:00">2022-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">小程序开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="实验目标"><a href="#实验目标" class="headerlink" title="实验目标"></a>实验目标</h2><p>1、掌握服务器域名配置和临时服务器部署；2、掌握 wx.request 接口的用法。</p>
+<h2 id="天气查询小程序"><a href="#天气查询小程序" class="headerlink" title="天气查询小程序"></a>天气查询小程序</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="API密钥申请"><a href="#API密钥申请" class="headerlink" title="API密钥申请"></a>API密钥申请</h4><p>首先，我们需要注册和风天气的用户，然后点击控制台，此时用户还没有应用，点击创建应用，选择免费开发版，设置完应用名称以后点击web api,然后为自己的key取名，创建完应用以后保存下自己的key，在程序中会用到。</p>
+<p><img src="https://s2.loli.net/2022/08/18/jFanHuDJRUEyBxI.png"></p>
+<p><img src="https://s2.loli.net/2022/08/18/iBlKRwAZOQHg6uh.png"></p>
+<h4 id="服务器域名设置"><a href="#服务器域名设置" class="headerlink" title="服务器域名设置"></a>服务器域名设置</h4><p>为了方便以后的程序正常调用API，我们需要在小程序界面中添加服务器域名。</p>
+<p>点击<strong>开发管理</strong>—&gt;&gt;<strong>开发设置</strong>，往下翻会看到一个服务器域名，我们需要添加的是request合法域名。点击修改，按照和风天气官方文档写的那样，添加<a target="_blank" rel="noopener" href="https://devapi.qweather.com/">https://devapi.qweather.com</a> 和 <a target="_blank" rel="noopener" href="https://geoapi.qweather.com/">https://geoapi.qweather.com</a></p>
+<p><img src="https://s2.loli.net/2022/08/19/4RdlJBhK5Puw1sf.png" alt="截屏2022-08-19 14.54.26.png"></p>
+<p>在微信小程序工具中点击详情，查看项目配置，可以看到我们添加了域名信息</p>
+<p><img src="https://s2.loli.net/2022/08/19/R9Y2fBdNcSMXzQr.png"></p>
+<h3 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h3><p><img src="https://s2.loli.net/2022/08/17/Yw1CA2PFV5JjrMR.png"></p>
+<p>登陆自己的小程序开发微信号，在AppID会自动显示出自己的ID，如果没有可以去自己的小程序Web界面，点击<strong>开发管理—&gt;开发设置</strong>查看自己的ID号。</p>
+<p>项目名称和目录自己选择，开发模式点击小程序，后端服务选择不使用云服务，模版选择javascript。点击确定，进入到开发界面，会自动生成pages、utils等文件，可以全部删除，后续再自己创建。</p>
+<p><img src="https://s2.loli.net/2022/08/17/COoj4nXiqzflpVK.png"></p>
+<h3 id="视图设计"><a href="#视图设计" class="headerlink" title="视图设计"></a>视图设计</h3><h4 id="页面区域："><a href="#页面区域：" class="headerlink" title="页面区域："></a>页面区域：</h4><ul>
+<li><p>第一个是地区选择器，用于更换想要查询的地区。</p>
+</li>
+<li><p>第二个区域用于显示当时的温度和天气状态，例如多云、晴。</p>
+</li>
+<li><p>第三个区域用于显示天气的图标。</p>
+</li>
+<li><p>第四个区域用于显示更详细的天气信息，例如湿度、风力。</p>
+</li>
+<li><p>区域一的会用到的组件是<code>picker</code></p>
+</li>
+<li><p>区域二会用到的组件是<code>text</code></p>
+</li>
+<li><p>区域三会用到<code>text</code></p>
+</li>
+<li><p>区域四会用到<code>&lt;view&gt;</code>组件，并定义class &#x3D; ’detail‘</p>
+<ul>
+<li>在此区域中我们需要设置单元行和单元格</li>
+<li>单元行用到的组件是4个<code>&lt;view&gt;</code>组件，并定义class &#x3D; ‘bar‘</li>
+<li>单元格用到的组件是3个<code>&lt;view&gt;</code>组件，并定义class &#x3D; ‘box’</li>
+</ul>
+</li>
+</ul>
+<h4 id="整体容器设计"><a href="#整体容器设计" class="headerlink" title="整体容器设计"></a>整体容器设计</h4><p>首先定义页面容器<code>&lt;view class = &#39;container&#39;&gt;</code>，在index.wxss文件中设计container的布局，将其设置为高度为100视窗，flex布局模式，垂直布局，水平方向居中。</p>
+<h4 id="区域一设计——地区选择器"><a href="#区域一设计——地区选择器" class="headerlink" title="区域一设计——地区选择器"></a>区域一设计——地区选择器</h4><p>需要使用<code>&lt;picker&gt;</code>组件实现一个地区选择器，用户可切换选择其他城市</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picker</span> <span class="attr">mode</span> = <span class="string">&#x27;region&#x27;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">view</span>&gt;</span>北京市<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picker</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="区域二设计——温度和天气信息"><a href="#区域二设计——温度和天气信息" class="headerlink" title="区域二设计——温度和天气信息"></a>区域二设计——温度和天气信息</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span>&gt;</span>20度 多云<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以先不用将温度和天气信息设置为变量，而是简单的设置为20度 多云</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text&#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">80</span>rpx;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#3C5F81</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在index.wxss文件中设置文本的样式，80rpx，我将字体设置为蓝色</p>
+<h4 id="区域三设计——天气图标"><a href="#区域三设计——天气图标" class="headerlink" title="区域三设计——天气图标"></a>区域三设计——天气图标</h4><p>这个区域的设计相对来说比较简单，在实验一中我们也使用过。首先我们需要使用<code>&lt;image&gt;</code>组件</p>
+<p><code>&lt;image src = &#39;/images/weather_icon_s2/999.png&#39;&gt;&lt;/image&gt;</code></p>
+<p>现将图标设置为999.png文件，呈现出来的是N&#x2F;A</p>
+<p>图标需要我们在和风天气官网下载，并一起存到与pages文件同级别的images文件中。</p>
+<h4 id="区域四设计——更详细的天气信息"><a href="#区域四设计——更详细的天气信息" class="headerlink" title="区域四设计——更详细的天气信息"></a>区域四设计——更详细的天气信息</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;detail&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>湿度<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>气压<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>能见度<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 %<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 hPa<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 Km<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>风向<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>风速<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>风力<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 Km/h<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>0 级<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们先将所有的参数设置为0</p>
+<p>在index.wxss中设置区域四的布局</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.detail</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.bar</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">20</span>rpx <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">33.3%</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这样小程序的布局就大致完成了，接下来我们要解决的是逻辑部分，也就是如何更换地区并得到正确的天气信息。</p>
+<h3 id="逻辑实现"><a href="#逻辑实现" class="headerlink" title="逻辑实现"></a>逻辑实现</h3><h4 id="更新省市区信息"><a href="#更新省市区信息" class="headerlink" title="更新省市区信息"></a>更新省市区信息</h4><p>刚刚我们仅是实现了布局页面，目前还不可以更改地区位置，所以我们需要在picker组件下自定义一个bindchange事件,用于监听选项变化。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picker</span> <span class="attr">mode</span> = <span class="string">&#x27;region&#x27;</span> <span class="attr">bindchange</span> = <span class="string">&#x27;changeRegion&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;region&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picker</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们会发现地区选择器的返回结果是一个数组，所以我们可以在index.js文件中的data中定义初始的位置，也就是省、市、区。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">data</span>: &#123;</span><br><span class="line">  <span class="attr">region</span>:[<span class="string">&#x27;北京市&#x27;</span>,<span class="string">&#x27;北京市&#x27;</span>,<span class="string">&#x27;东城区&#x27;</span>]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>我们将初始位置定义为北京市东城区。学习到这里我在想，假如有一个获取实时定位的API，那利用这个API我们是不是可以将region变量获取到实际上所在位置，那就更像手机里的天气app了。(一个猜想，不一定对)</p>
+<h4 id="获取实况天气数据"><a href="#获取实况天气数据" class="headerlink" title="获取实况天气数据"></a>获取实况天气数据</h4><p>在index.js文件中编写获取天气数据的函数,由于2021年后和风天气只能通过城市的locationID才能获取信息，我们只好先利用<a target="_blank" rel="noopener" href="https://dev.qweather.com/docs/api/geo/">城市服务获取</a>，在这里我们会先用到城市搜索服务的API得到ID号，然后将ID号返回给实时天气API。这里我们调用API时需要输入和风天气的URL，也要输入自己的key，这样我们就能获取到实时天气信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">getWeather</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="variable language_">this</span>;</span><br><span class="line">    wx.<span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;https://geoapi.qweather.com/v2/city/lookup?&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: &#123;</span><br><span class="line">        <span class="attr">location</span>: <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">region</span>[<span class="number">2</span>],</span><br><span class="line">        <span class="attr">adm</span>: <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">region</span>[<span class="number">1</span>],</span><br><span class="line">        <span class="attr">key</span>:<span class="string">&#x27;00cae4fb53ff4bdd976ed4bc6bb28ad9&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line">        that.<span class="title function_">setData</span>(&#123;<span class="attr">weatherid</span>: res.<span class="property">data</span>.<span class="property">location</span>[<span class="number">0</span>].<span class="property">id</span>&#125;)</span><br><span class="line">        wx.<span class="title function_">request</span>(&#123;</span><br><span class="line">          <span class="attr">url</span>: <span class="string">&#x27;https://devapi.qweather.com/v7/weather/now?&#x27;</span>,</span><br><span class="line">          <span class="attr">data</span>:&#123;</span><br><span class="line">            <span class="attr">location</span>: that.<span class="property">data</span>.<span class="property">weatherid</span>,</span><br><span class="line">            <span class="attr">key</span>:<span class="string">&#x27;00cae4fb53ff4bdd976ed4bc6bb28ad9&#x27;</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line">            that.<span class="title function_">setData</span>(&#123;<span class="attr">weather</span>:res.<span class="property">data</span>.<span class="property">now</span>&#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<p>将上述函数在生命周期函数onload和changeRegion函数调用，用于更新天气。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">changeRegion</span>:<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">region</span>:e.<span class="property">detail</span>.<span class="property">value</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">getWeather</span>();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">onLoad</span>: <span class="keyword">function</span> (<span class="params">options</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">getWeather</span>();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="更新页面天气信息"><a href="#更新页面天气信息" class="headerlink" title="更新页面天气信息"></a>更新页面天气信息</h4><p>因为我们在getweather函数中把得到的天气信息给了weather变量，所以为了得到页面详细的天气信息，我们需要修改index.wxml中的内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.humidity&#125;&#125;%<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.pressure&#125;&#125;hPa<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.vis&#125;&#125;Km<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;bar&#x27;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.windDir&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.windSpeed&#125;&#125;Km/h<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&#x27;box&#x27;</span>&gt;</span>&#123;&#123;weather.windScale&#125;&#125;级<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span>    </span><br></pre></td></tr></table></figure>
+
+<p>上述内容我们将风速湿度的信息设置为一个变量，通过weather获取。</p>
+<p>最后我们就完成实验啦！不过在完成实验后我发现天气图标有的可以渲染出来，有的不行，最后发现时返回的icon参数和图标不匹配，修改图片名称就行了，比如多云是151，我们需要找到很像多云的图标，修改成151.png即可。</p>
+<p><img src="https://s2.loli.net/2022/08/19/jM5VBR9ZqkYoG8h.png"></p>
+<h2 id="问题总结与体会"><a href="#问题总结与体会" class="headerlink" title="问题总结与体会"></a>问题总结与体会</h2><p>之前在油管上看到过用Django去做一个天气app，也是像这个实验一样调用API，当时就对这个很感兴趣了，但是迟迟不敢试，因为害怕配置环境。这次的实验让我明白了如何调用API做出一个成型的项目，并且在成长中多加思考，我对小程序的学习更感兴趣了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1054,91 +1231,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/13/leetcode-1926-%E8%BF%B7%E5%AE%AB%E4%B8%AD%E7%A6%BB%E5%85%A5%E5%8F%A3%E6%9C%80%E8%BF%91%E7%9A%84%E5%87%BA%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓今天debug了吗">
-      <meta itemprop="description" content="一个记录成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/13/leetcode-1926-%E8%BF%B7%E5%AE%AB%E4%B8%AD%E7%A6%BB%E5%85%A5%E5%8F%A3%E6%9C%80%E8%BF%91%E7%9A%84%E5%87%BA%E5%8F%A3/" class="post-title-link" itemprop="url">leetcode 1926.迷宫中离入口最近的出口</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-08-13 23:29:40 / 修改时间：23:38:33" itemprop="dateCreated datePublished" datetime="2022-08-13T23:29:40+08:00">2022-08-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>​	原题链接： <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/">leetcode1926.迷宫中离入口最近的出口</a></p>
-<p><img src="https://s2.loli.net/2022/08/13/e6jz7Mkq8NwDHWv.png"></p>
-<p>这道题的思路和这道<a target="_blank" rel="noopener" href="https://loveanneliser.github.io/2022/08/13/%E8%B5%B0%E8%BF%B7%E5%AE%AB-%E7%BB%8F%E5%85%B8bfs/">走迷宫</a>的题是一个思路，也是用到bfs算法。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> d[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">bfs</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; maze, vector&lt;<span class="type">int</span>&gt;&amp; entrance)</span> </span>&#123;</span><br><span class="line">        queue&lt;PII&gt; que;</span><br><span class="line">        <span class="built_in">memset</span>(d, <span class="number">-1</span>, <span class="keyword">sizeof</span> d);</span><br><span class="line">        <span class="type">int</span> n = maze[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> m = maze.<span class="built_in">size</span>();</span><br><span class="line">        </span><br><span class="line">        d[entrance[<span class="number">0</span>]][entrance[<span class="number">1</span>]] = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        que.<span class="built_in">push</span>(&#123;entrance[<span class="number">0</span>], entrance[<span class="number">1</span>]&#125;);</span><br><span class="line">        <span class="keyword">while</span>(!que.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = que.<span class="built_in">front</span>();</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">                <span class="type">int</span> x = t.first + dx[i];</span><br><span class="line">                <span class="type">int</span> y = t.second + dy[i];</span><br><span class="line">                <span class="keyword">if</span>(x &lt; m &amp;&amp; x &gt;= <span class="number">0</span> &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">                         y &lt; n &amp;&amp; maze[x][y] == <span class="string">&#x27;.&#x27;</span>  &amp;&amp; d[x][y] == <span class="number">-1</span>)&#123;      </span><br><span class="line">                    d[x][y] = d[t.first][t.second] + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">if</span>(x == <span class="number">0</span> || x == m - <span class="number">1</span> || y == <span class="number">0</span> || y == n - <span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> d[x][y];</span><br><span class="line">                    &#125;</span><br><span class="line">                   </span><br><span class="line">                    que.<span class="built_in">push</span>(&#123;x, y&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">nearestExit</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; maze, vector&lt;<span class="type">int</span>&gt;&amp; entrance)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">bfs</span>(maze, entrance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
