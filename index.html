@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">21</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">22</span></a></li>
   </ul>
 </nav>
 
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -182,6 +182,132 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/23/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%B8%89-%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/23/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%B8%89-%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/" class="post-title-link" itemprop="url">小程序(三)--视频播放器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-23 18:39:12 / 修改时间：20:53:36" itemprop="dateCreated datePublished" datetime="2022-08-23T18:39:12+08:00">2022-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">小程序开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="实验目标"><a href="#实验目标" class="headerlink" title="实验目标"></a>实验目标</h2><p>1、掌握视频列表的切换方法；2、掌握视频自动播放方法；3、掌握视频随机颜色弹幕效果。</p>
+<h2 id="视频播放小程序"><a href="#视频播放小程序" class="headerlink" title="视频播放小程序"></a>视频播放小程序</h2><h3 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h3><p><img src="https://s2.loli.net/2022/08/17/Yw1CA2PFV5JjrMR.png"></p>
+<p>登陆自己的小程序开发微信号，在AppID会自动显示出自己的ID，如果没有可以去自己的小程序Web界面，点击<strong>开发管理—&gt;开发设置</strong>查看自己的ID号。</p>
+<p>项目名称和目录自己选择，开发模式点击小程序，后端服务选择不使用云服务，模版选择javascript。点击确定，进入到开发界面，会自动生成pages、utils等文件，可以全部删除，后续再自己创建。</p>
+<p><img src="https://s2.loli.net/2022/08/17/COoj4nXiqzflpVK.png"></p>
+<h3 id="视图设计"><a href="#视图设计" class="headerlink" title="视图设计"></a>视图设计</h3><p>在app.json中自定义导航栏的颜色和标题</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;pages/index/index&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;window&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#987938&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;口述校史&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>随后设计页面布局，将页面分成三个区域，第一个区域是视频播放器，第二个区域是弹幕区域，第三个区域是视频列表。</p>
+<h4 id="区域实现"><a href="#区域实现" class="headerlink" title="区域实现"></a>区域实现</h4><p>区域一需要一个video组件来实现视频播放器，为了美观，可以在index.wxss中将视频组件宽度设置为100%</p>
+<p>区域二是实现弹幕功能，在此用到<code>&lt;view&gt;</code>组件实现一个单行区域，含有文本框和发送按钮。在区域二内部，我们用到了<code>input</code> 和<code>button</code>组件，用于输入内容和发送弹幕。</p>
+<p>区域三含有视频列表，我们可以随意选择自己想看的视频。区域三内有单元行，这里用到了<code>&lt;view&gt;</code>组件，在区域三单元行内，每行一个<code>&lt;image&gt;</code>组件用于显示播放图标，一个<code>&lt;text&gt;</code>组件用于显示视频标题。在这里用到for循环添加全部内容，这样会更高效更方便。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--视频播放器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span> = <span class="string">&#x27;myVideo&#x27;</span> <span class="attr">controls</span> <span class="attr">src</span> = <span class="string">&quot;&#123;&#123;src&#125;&#125;&quot;</span> <span class="attr">controls</span> <span class="attr">enable-danmu-btn</span> &gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!--弹幕区域--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;danmuArea&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">&#x27;text&#x27;</span> <span class="attr">placeholder</span> = <span class="string">&quot;请输入弹幕内容&quot;</span> <span class="attr">bindinput</span>= <span class="string">&quot;getDanmu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>= <span class="string">&quot;sendDanmu&quot;</span>&gt;</span>发送弹幕<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--视频列表--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;videoList&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&#x27;videoBar&#x27;</span> <span class="attr">wx:for</span> = <span class="string">&quot;&#123;&#123;list&#125;&#125;&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;video&#123;&#123;index&#125;&#125;&quot;</span> <span class="attr">data-url</span> = </span></span><br><span class="line"><span class="tag"><span class="string">&quot;&#123;&#123;item.videoUrl&#125;&#125;&quot;</span> <span class="attr">bindtap</span>=<span class="string">&quot;playVideo&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span> = <span class="string">&#x27;/images/play.png&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123;item.title&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="逻辑实现"><a href="#逻辑实现" class="headerlink" title="逻辑实现"></a>逻辑实现</h3><h4 id="更新播放列表"><a href="#更新播放列表" class="headerlink" title="更新播放列表"></a>更新播放列表</h4><p>在区域三对<code>&lt;view class = ’videoBar‘&gt;</code>组件添加wx:for属性，改写为循环展示列表。</p>
+<p>在index.js的data属性添加list数组，这些是视频信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">danmuTxt</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">list</span>: [&#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="string">&#x27;1001&#x27;</span>,</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;杨国宜先生口述校史实录&#x27;</span>,</span><br><span class="line">      <span class="attr">videoUrl</span>: <span class="string">&#x27;http://arch.ahnu.edu.cn/__local/6/CB/D1/C2DF3FC847F4CE2ABB67034C595_025F0082_ABD7AE2.mp4?e=.mp4&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="string">&#x27;1002&#x27;</span>,</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;唐成伦先生口述校史实录&#x27;</span>,</span><br><span class="line">      <span class="attr">videoUrl</span>: <span class="string">&#x27;http://arch.ahnu.edu.cn/__local/E/31/EB/2F368A265E6C842BB6A63EE5F97_425ABEDD_7167F22.mp4?e=.mp4&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="string">&#x27;1003&#x27;</span>,</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;倪光明先生口述校史实录&#x27;</span>,</span><br><span class="line">      <span class="attr">videoUrl</span>: <span class="string">&#x27;http://arch.ahnu.edu.cn/__local/9/DC/3B/35687573BA2145023FDAEBAFE67_AAD8D222_925F3FF.mp4?e=.mp4&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="string">&#x27;1004&#x27;</span>,</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;吴仪兴先生口述校史实录&#x27;</span>,</span><br><span class="line">      <span class="attr">videoUrl</span>: <span class="string">&#x27;http://arch.ahnu.edu.cn/__local/5/DA/BD/7A27865731CF2B096E90B522005_A29CB142_6525BCF.mp4?e=.mp4&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>效果如下图：</p>
+<p><img src="https://s2.loli.net/2022/08/23/mLTjN3Cx8DgY1Pd.png"></p>
+<h4 id="点击播放视频"><a href="#点击播放视频" class="headerlink" title="点击播放视频"></a>点击播放视频</h4><p>在区域三对<code>&lt;view class = &#39;videoBar&#39;&gt;</code>组件添加data-url属性和bindtap属性。data-url用于记录每行视频对应的播放地址，bindtap用于触发点击事件。</p>
+<p>在index.js文件的onload函数中创建视频上下文，用于控制视频的播放和停止。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 生命周期函数--监听页面加载</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="title function_">onLoad</span>(<span class="params">options</span>) &#123;</span><br><span class="line">   <span class="variable language_">this</span>.<span class="property">videoCtx</span> = wx.<span class="title function_">createVideoContext</span>(<span class="string">&#x27;myVideo&#x27;</span>)</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<p>添加自定义函数playVideo，js代码片段如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">playVideo</span>: <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">videoCtx</span>.<span class="title function_">stop</span>() <span class="comment">// 停止之前播放的视频</span></span><br><span class="line">  <span class="comment">// 更新视频地址</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">    <span class="attr">src</span>: e.<span class="property">currentTarget</span>.<span class="property">dataset</span>.<span class="property">url</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 播放新的视频</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">videoCtx</span>.<span class="title function_">play</span>()</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="发送弹幕"><a href="#发送弹幕" class="headerlink" title="发送弹幕"></a>发送弹幕</h4><p>在区域一对<code>&lt;video&gt;</code>组件添加enable-danmu和danmu-btn属性，用于允许发送弹幕和显示“发送弹幕”按钮</p>
+<p>在区域二为文本输入框追加bindinput属性，用于获取弹幕文本内容，为按钮追加bindtap属性，用于触发点击事件。</p>
+<p>对应的index.js修改如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">getDanmu</span>: <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">    <span class="attr">danmuTxt</span>: e.<span class="property">detail</span>.<span class="property">value</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="attr">sendDanmu</span>: <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> text = <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">danmuTxt</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">videoCtx</span>.<span class="title function_">sendDanmu</span>(&#123;</span><br><span class="line">    <span class="attr">text</span>: text,</span><br><span class="line">    <span class="attr">color</span>: <span class="title function_">getRandomcolor</span>() <span class="comment">// 随机获取弹幕颜色</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在Page外面添加函数，用于得到随机的弹幕颜色</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getRandomcolor</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> rgb = []</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i) &#123;</span><br><span class="line">    <span class="keyword">let</span> color = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">256</span>).<span class="title function_">toString</span>(<span class="number">16</span>)</span><br><span class="line">    color = color.<span class="property">length</span> == <span class="number">1</span> ? <span class="string">&#x27;0&#x27;</span> + color : color</span><br><span class="line">    rgb.<span class="title function_">push</span>(color) </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;#&#x27;</span> + rgb.<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="程序运行结果"><a href="#程序运行结果" class="headerlink" title="程序运行结果"></a>程序运行结果</h2><p><img src="https://s2.loli.net/2022/08/23/aVod8YB51p4fNPn.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8C-%E5%A4%A9%E6%B0%94app/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +344,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-19 15:47:15" itemprop="dateModified" datetime="2022-08-19T15:47:15+08:00">2022-08-19</time>
+      <time title="修改时间：2022-08-23 19:53:07" itemprop="dateModified" datetime="2022-08-23T19:53:07+08:00">2022-08-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1127,92 +1253,6 @@
 <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>我们需要把输入样例做个处理，首先我们要把所有数字取出来，比如样例1的处理结果就是123400</p>
 <p>然后我们再根据E后面的数字来做判断，不懂的可以再看看代码注释。</p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    </span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>) cout &lt;&lt; <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> k = s.<span class="built_in">find</span>(<span class="string">&quot;E&quot;</span>); <span class="comment">// 找到E的位置</span></span><br><span class="line">    </span><br><span class="line">    string num = s[<span class="number">1</span>] + s.<span class="built_in">substr</span>(<span class="number">3</span> ,k - <span class="number">3</span>); <span class="comment">//取出所有数字</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> b = <span class="built_in">stoi</span>(s.<span class="built_in">substr</span>(k + <span class="number">1</span>)); <span class="comment">//将E后面的数转换为数字</span></span><br><span class="line">    b++; <span class="comment">// 因为科学计数法的方法是x.xxxx,所以我们要把b加一</span></span><br><span class="line">   </span><br><span class="line">    <span class="comment">// 根据b的大小分别判断结果</span></span><br><span class="line">    <span class="keyword">if</span>(b &lt;= <span class="number">0</span>) num = <span class="string">&quot;0.&quot;</span> + <span class="built_in">string</span>(-b, <span class="string">&#x27;0&#x27;</span>) + num;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(b &gt;= num.<span class="built_in">size</span>())  num += <span class="built_in">string</span>(b - num.<span class="built_in">size</span>(), <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">else</span> num = num.<span class="built_in">substr</span>(<span class="number">0</span>, b) + <span class="string">&#x27;.&#x27;</span> + num.<span class="built_in">substr</span>(b);<span class="comment">// 小数点后所有的数</span></span><br><span class="line">        </span><br><span class="line">    cout &lt;&lt; num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/14/leetcode-493-%E7%BF%BB%E8%BD%AC%E5%AF%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓今天debug了吗">
-      <meta itemprop="description" content="一个记录成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/14/leetcode-493-%E7%BF%BB%E8%BD%AC%E5%AF%B9/" class="post-title-link" itemprop="url">leetcode 493.翻转对</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-08-14 14:11:23 / 修改时间：14:23:41" itemprop="dateCreated datePublished" datetime="2022-08-14T14:11:23+08:00">2022-08-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>原题链接: <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-pairs/">翻转对</a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题是用<strong>归并排序</strong>的方法，归并排序是先找到临界点mid，然后开始<strong>递归</strong>，left<del>mid的数据排好序，mid+1</del>right的数据排好序，再在合并之前判断nums[i]和nums[j] * 2的大小，随后就是归并。<br>这道题要注意的是<strong>长整数型</strong>！搞了好久才搞出来….</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="type">long</span> tmp[<span class="number">50010</span>]; <span class="comment">// 用一个临时数组存放结果</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">merge_sorte</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums,<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left &gt;= right) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = (left + right) / <span class="number">2</span>; </span><br><span class="line">        <span class="type">int</span> res = <span class="built_in">merge_sorte</span>(nums, left, mid) + <span class="built_in">merge_sorte</span>(nums, mid + <span class="number">1</span>, right); <span class="comment">//递归</span></span><br><span class="line">        <span class="type">int</span> i = left, j = mid + <span class="number">1</span>, k = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span>((<span class="type">long</span> <span class="type">long</span>)nums[i] &gt; <span class="number">2</span> * (<span class="type">long</span> <span class="type">long</span>)nums[j]) &#123;</span><br><span class="line">                res += mid - i + <span class="number">1</span>; <span class="comment">// 公式</span></span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//上面就是判断过程 是重点 下面的是归并排序的合并模版</span></span><br><span class="line">      </span><br><span class="line">        i = left;</span><br><span class="line">        j = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= right ) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt; nums[j]) &#123;</span><br><span class="line">                tmp[k++] = nums[i++];</span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                tmp[k++] = nums[j++];     </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid) tmp[k++] = nums[i++];</span><br><span class="line">        <span class="keyword">while</span>(j &lt;= right) tmp[k++] = nums[j++];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = left,j = <span class="number">0</span> ; i &lt;= right;i++,j++) &#123;</span><br><span class="line">            nums[i] = tmp[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reversePairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">merge_sorte</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
 
       
     </div>
