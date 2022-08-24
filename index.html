@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">22</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">23</span></a></li>
   </ul>
 </nav>
 
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -182,6 +182,168 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E5%9B%9B-%E9%AB%98%E6%A0%A1%E6%96%B0%E9%97%BB%E7%BD%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E5%9B%9B-%E9%AB%98%E6%A0%A1%E6%96%B0%E9%97%BB%E7%BD%91/" class="post-title-link" itemprop="url">小程序(四)--高校新闻网</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-24 20:47:18 / 修改时间：21:59:13" itemprop="dateCreated datePublished" datetime="2022-08-24T20:47:18+08:00">2022-08-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">小程序开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>1、综合所学知识创建完整的前端新闻小程序项目；能够在开发过程中熟练掌握真机预览、调试等操作。</p>
+<h2 id="高校新闻网"><a href="#高校新闻网" class="headerlink" title="高校新闻网"></a>高校新闻网</h2><h3 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h3><p><img src="https://s2.loli.net/2022/08/17/Yw1CA2PFV5JjrMR.png"></p>
+<p>登陆自己的小程序开发微信号，在AppID会自动显示出自己的ID，如果没有可以去自己的小程序Web界面，点击<strong>开发管理—&gt;开发设置</strong>查看自己的ID号。</p>
+<p>项目名称和目录自己选择，开发模式点击小程序，后端服务选择不使用云服务，模版选择javascript。点击确定，进入到开发界面，会自动生成pages、utils等文件，可以全部删除，后续再自己创建。</p>
+<p>最终项目的文件结构如下：</p>
+<p><img src="https://s2.loli.net/2022/08/24/LcSUsbRf8TYpwX2.png"></p>
+<h3 id="视图设计"><a href="#视图设计" class="headerlink" title="视图设计"></a>视图设计</h3><h4 id="导航栏设计"><a href="#导航栏设计" class="headerlink" title="导航栏设计"></a>导航栏设计</h4><p>在app.json中对window属性自定义导航栏</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;window&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#328EEB&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;我的新闻网&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#eeeeee&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;backgroundTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;light&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;enablePullDownRefresh&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="tabBar设计"><a href="#tabBar设计" class="headerlink" title="tabBar设计"></a>tabBar设计</h4><p>在app.json中追加tarBar的属性代码, 更改后小程序的页面底部会出现”首页“和“我的”选项, 此时可以切换首页和个人页了。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;tabBar&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;selectedColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#328EEB&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;list&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;pagePath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/index/index&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;首页&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;iconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/images/index.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;selectedIconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/images/index_blue.png&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;pagePath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/my/my&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;我的&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;iconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/images/my.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;selectedIconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/images/my_blue.png&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="页面设计"><a href="#页面设计" class="headerlink" title="页面设计"></a>页面设计</h4><h5 id="首页设计"><a href="#首页设计" class="headerlink" title="首页设计"></a>首页设计</h5><p>首页的内容包括幻灯片滚动和新闻列表。</p>
+<p>为了有幻灯片滚动效果，我们需要用到<code>&lt;swiper&gt;</code>组件，新闻列表我们会用到<code>&lt;view&gt;</code>组件，内部是一个数组循环，index.wxml代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--幻灯片滚动--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">swiper</span> <span class="attr">indicator-dots</span>=<span class="string">&quot;true&quot;</span> <span class="attr">autoplay</span>=<span class="string">&quot;true&quot;</span> <span class="attr">interval</span>=<span class="string">&quot;5000&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">duration</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;swiperImg&#125;&#125;&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;swiper&#123;&#123;index&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span> = <span class="string">&quot;&#123;&#123;item.src&#125;&#125;&quot;</span> <span class="attr">class</span> = <span class="string">&quot;slide-image&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--新闻列表--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span> = <span class="string">&quot;news-list&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;list-item&quot;</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;newsList&#125;&#125;&quot;</span> <span class="attr">wx:for-item</span>=<span class="string">&quot;news&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;&#123;&#123;news.id&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span> = <span class="string">&quot;&#123;&#123;news.poster&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">bindtap</span> = <span class="string">&#x27;goToDetail&#x27;</span> <span class="attr">data-id</span>=<span class="string">&#x27;&#123;&#123;news.id&#125;&#125;&#x27;</span>&gt;</span> &#123;&#123;news.title&#125;&#125;--&#123;&#123;news.add_date&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<p>相应的index.wxss代码如下：</p>
+<p>注：由于新闻列表的样式和首页完全相同，我们可以将index.wxss中的代码挪到app.wxss中一起使用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">swiper&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line">swiper image &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#news-list</span>&#123;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">600</span>rpx;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list-item</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1</span>rpx solid gray;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list-item</span> image&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">230</span>rpx;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150</span>rpx;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list-item</span> text &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">60</span>rpx;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10pt</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在index.js文件中，我们在data录入几个测试数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">swiperImg</span>: [</span><br><span class="line">      &#123;<span class="attr">src</span>: <span class="string">&#x27;https://gaopursuit.oss-cn-beijing.aliyuncs.com/2022/newsimage1.jpg&#x27;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">src</span>: <span class="string">&#x27;https://gaopursuit.oss-cn-beijing.aliyuncs.com/2022/newsimage2.jpg&#x27;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">src</span>: <span class="string">&#x27;https://gaopursuit.oss-cn-beijing.aliyuncs.com/2022/newsimage3.jpg&#x27;</span>&#125;</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>此时幻灯片效果就出来了，如果我们添加临时新闻数据，页面可以显示幻灯片播放和一条临时新闻。</p>
+<h5 id="个人页设计"><a href="#个人页设计" class="headerlink" title="个人页设计"></a>个人页设计</h5><p>个人页包含登录面板和我的收藏，登录面板显示微信个人头像和昵称，我的收藏显示自己收藏的新闻。</p>
+<p>使用<code>&lt;view&gt;</code>组件进行整体布局，自定义id名称如下：</p>
+<ul>
+<li><p>myLogin: 登录面板</p>
+</li>
+<li><p>myIcon：微信头像图片</p>
+</li>
+<li><p>nickName：微信昵称</p>
+</li>
+<li><p>myFavorites：我的收藏</p>
+</li>
+</ul>
+<p>对应的my.wxml代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--登录面板--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span> = <span class="string">&#x27;myLogin&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123;isLogin&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">id</span> = <span class="string">&quot;myIcon&quot;</span> <span class="attr">src</span> = <span class="string">&quot;&#123;&#123;src&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">id</span> = <span class="string">&quot;nickName&quot;</span>&gt;</span>&#123;&#123;nickName&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">wx:else</span>=<span class="string">&quot;&#123;&#123;canIUseGetUserProfile&#125;&#125;&quot;</span> <span class="attr">bindtap</span>=<span class="string">&quot;getUserProfile&quot;</span>&gt;</span> 未登录，点此登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--我的收藏--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span> = <span class="string">&#x27;myFavorites&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>我的收藏&#123;&#123;num&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span> = <span class="string">&quot;news-list&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&quot;list-item&quot;</span> <span class="attr">wx:for</span> = <span class="string">&quot;&#123;&#123;newsList&#125;&#125;&quot;</span> <span class="attr">wx:for-item</span>=<span class="string">&quot;news&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;&#123;&#123;news.id&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span> = <span class="string">&quot;&#123;&#123;news.poster&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">text</span> <span class="attr">bindtap</span>=<span class="string">&quot;goToDetail&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;&#123;&#123;news.id&#125;&#125;&quot;</span>&gt;</span>&#123;&#123;news.title&#125;&#125;--&#123;&#123;news.add_date&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> my.wxss代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#myLogin</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#328EEB</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400</span>rpx;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#myIcon</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200</span>rpx;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200</span>rpx;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#nickName</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#myFavorites</span>&#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20</span>rpx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="新闻页设计"><a href="#新闻页设计" class="headerlink" title="新闻页设计"></a>新闻页设计</h5><p>为了显示新闻页，我们先添加编译模式，追加对于detail页面的直接浏览效果。</p>
+<p>detail.wxml代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&quot;title&quot;</span>&gt;</span>&#123;&#123;article.title&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>= <span class="string">&quot;poster&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span> = <span class="string">&quot;&#123;&#123;article.poster&#125;&#125;&quot;</span> <span class="attr">mode</span>=<span class="string">&quot;widthFix&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&quot;content&quot;</span>&gt;</span>&#123;&#123;article.content&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span> = <span class="string">&quot;add_date&quot;</span>&gt;</span>时间：&#123;&#123;article.add_date&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123;isAdd&#125;&#125;&quot;</span> <span class="attr">plain</span> <span class="attr">bindtap</span>=<span class="string">&quot;cancalFavorites&quot;</span>&gt;</span>已收藏<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">wx:else</span> <span class="attr">plain</span> <span class="attr">bindtap</span> = <span class="string">&quot;addFavorites&quot;</span>&gt;</span>点击收藏<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在detail.js中的data添加以下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">data</span>: &#123;</span><br><span class="line">  <span class="attr">article</span>:&#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;264698&#x27;</span>,</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27;省退役军人事务厅来校交流对接工作&#x27;</span>,</span><br><span class="line">    <span class="attr">poster</span>: <span class="string">&#x27;https://gaopursuit.oss-cn-beijing.aliyuncs.com/2022/newsimage1.jpg&#x27;</span>,</span><br><span class="line">    <span class="attr">content</span>: <span class="string">&#x27; 8月19日，省退役军人事务厅二级巡视员蔡元和、办公室主任刘恒贵、就业创业处副处长钟俊武一行来校就联合共建安徽退役军人学院事宜进行交流对接。校党委常委、副校长陆林，芜湖市退役军人事务局党组成员、副局长张桂芬，学校办公室、人事处、教务处、招就处、学生处、研究生院、体育学院负责同志参加会议。&#x27;</span>,</span><br><span class="line">    <span class="attr">add_date</span>: <span class="string">&#x27;2022-08-19&#x27;</span>&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>点击编译，会呈现以下界面：</p>
+<p><img src="https://s2.loli.net/2022/08/24/69D5QS8swKA4r7a.png"></p>
+<p>到此页面就设计完了，目前尚未获得新闻数据，暂时无法从主页或个人页获取新闻，下面将会继续介绍。</p>
+<h3 id="逻辑实现"><a href="#逻辑实现" class="headerlink" title="逻辑实现"></a>逻辑实现</h3><h4 id="公共逻辑"><a href="#公共逻辑" class="headerlink" title="公共逻辑"></a>公共逻辑</h4><p>我们将common.js文件放在utils中，作为一个公共接口，这个接口可以获取新闻列表，获取新闻内容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> news = [</span><br><span class="line">  &#123;<span class="attr">id</span>: <span class="string">&#x27;264698&#x27;</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;省退役军人事务厅来校交流对接工作&#x27;</span>,</span><br><span class="line">  <span class="attr">poster</span>: <span class="string">&#x27;https://gaopursuit.oss-cn-beijing.aliyuncs.com/2022/newsimage1.jpg&#x27;</span>,</span><br><span class="line">  <span class="attr">content</span>: <span class="string">&#x27; 8月19日，省退役军人事务厅二级巡视员蔡元和、办公室主任刘恒贵、就业创业处副处长钟俊武一行来校就联合共建安徽退役军人学院事宜进行交流对接。校党委常委、副校长陆林，芜湖市退役军人事务局党组成员、副局长张桂芬，学校办公室、人事处、教务处、招就处、学生处、研究生院、体育学院负责同志参加会议。&#x27;</span>,</span><br><span class="line">  <span class="attr">add_date</span>: <span class="string">&#x27;2022-08-19&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>: <span class="string">&#x27;304083&#x27;</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;《光明日报》刊发我校研究员王顺理论文章《不断提高理论素养》&#x27;</span>,</span><br><span class="line">  <span class="attr">poster</span>: <span class="string">&#x27;https://gaopursuit.oss-cn-beijing.aliyuncs.com/2022/newsimage2.jpg&#x27;</span>,</span><br><span class="line">  <span class="attr">content</span>: <span class="string">&#x27; 8月9日，《光明日报》第06版“学习贯彻习近平新时代中国特色社会主义思想专刊”版面长篇幅刊发了我校中国特色社会主义理论体系研究中心特约研究员、马克思主义学院博士生王顺题为《不断提高理论素养》的理论文章。文章从“理论素养坚实，才能理想信念坚定”“克服前进道路上的各种困难，需要具备扎实的理论素养”“提升理论素养，必须学懂弄通做实党的创新理论”3个方面全面阐述了不断提高理论素养、坚持用党的创新理论武装头脑的重要性。文章指出，新征程上，面对具有新的历史特点的伟大斗争，迫切需要我们学懂弄通做实党的创新理论，以扎实的理论素养提升战略定力、斗争能力，从而不断取得新的伟大胜利。&#x27;</span>,</span><br><span class="line">  <span class="attr">add_date</span>: <span class="string">&#x27;2022-08-09&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>: <span class="string">&#x27;305670&#x27;</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;我校在第八届安徽省“互联网+”大学生创新创业大赛再创佳绩&#x27;</span>,</span><br><span class="line">  <span class="attr">poster</span>: <span class="string">&#x27;https://gaopursuit.oss-cn-beijing.aliyuncs.com/2022/newsimage3.jpg&#x27;</span>,</span><br><span class="line">  <span class="attr">content</span>: <span class="string">&#x27;7月4日—8月10日，由安徽省教育厅、合肥市人民政府、淮北市人民政府联合主办的第八届安徽省“互联网+”大学生创新创业大赛暨中国国际“互联网+”大学生创新创业大赛选拔赛在线上举办。我校参赛项目团队历经省级复赛网评、决赛路演答辩、金奖排位赛等多轮次比拼，斩获金奖3项、银奖10项、铜奖23项，其中3个项目由省赛组委会推荐入围国赛。&#x27;</span>,</span><br><span class="line">  <span class="attr">add_date</span>: <span class="string">&#x27;2022-08-11&#x27;</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取新闻列表</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getNewsList</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> list = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; news.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">    obj.<span class="property">id</span> = news[i].<span class="property">id</span>;</span><br><span class="line">    obj.<span class="property">poster</span> = news[i].<span class="property">poster</span>;</span><br><span class="line">    obj.<span class="property">add_date</span> = news[i].<span class="property">add_date</span>;</span><br><span class="line">    obj.<span class="property">title</span> = news[i].<span class="property">title</span>;</span><br><span class="line">    list.<span class="title function_">push</span>(obj);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> list; <span class="comment">//返回新闻列表</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取新闻内容</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getNewsDetail</span>(<span class="params">newsID</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> msg = &#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&#x27;404&#x27;</span>, <span class="comment">//没有对应的新闻</span></span><br><span class="line">    <span class="attr">news</span>: &#123;&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; news.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (newsID == news[i].<span class="property">id</span>) &#123; <span class="comment">//匹配新闻id编号</span></span><br><span class="line">      msg.<span class="property">code</span> = <span class="string">&#x27;200&#x27;</span>; <span class="comment">//成功</span></span><br><span class="line">      msg.<span class="property">news</span> = news[i]; <span class="comment">//更新当前新闻内容</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> msg; <span class="comment">//返回查找结果</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对外暴露接口</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">getNewsList</span>: getNewsList,</span><br><span class="line">  <span class="attr">getNewsDetail</span>: getNewsDetail</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在index.js、my.js、detail.js中首行添加下列代码：<code>var common = require(&#39;../../utils/common.js&#39;)</code></p>
+<h4 id="首页逻辑"><a href="#首页逻辑" class="headerlink" title="首页逻辑"></a>首页逻辑</h4><p>在onload函数中获取新闻列表，并更新到data属性的newsList参数中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">onLoad</span>: <span class="keyword">function</span>(<span class="params">options</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> list = common.<span class="title function_">getNewsList</span>()</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;<span class="attr">newsList</span>:list&#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="逻辑页实现"><a href="#逻辑页实现" class="headerlink" title="逻辑页实现"></a>逻辑页实现</h4><p>在index.js中添加函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">goToDetail</span>: <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="comment">//获取携带的data-id数据</span></span><br><span class="line">  <span class="keyword">let</span> id = e.<span class="property">currentTarget</span>.<span class="property">dataset</span>.<span class="property">id</span>;</span><br><span class="line">  <span class="comment">//携带新闻id进行页面跳转</span></span><br><span class="line">  wx.<span class="title function_">navigateTo</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;../detail/detail?id=&#x27;</span> + id</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>添加完上面的函数以后就可以直接从主页点进新闻了。</p>
+<h4 id="个人中心页"><a href="#个人中心页" class="headerlink" title="个人中心页"></a>个人中心页</h4><p>在这里我们会用到用户一的方法获取用户信息，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">wx:else</span>=<span class="string">&quot;&#123;&#123;canIUseGetUserProfile&#125;&#125;&quot;</span> <span class="attr">bindtap</span>=<span class="string">&quot;getUserProfile&quot;</span>&gt;</span> 未登录，点此登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">getUserProfile</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="comment">// 推荐使用 wx.getUserProfile 获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认</span></span><br><span class="line">  <span class="comment">// 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗</span></span><br><span class="line">  wx.<span class="title function_">getUserProfile</span>(&#123;</span><br><span class="line">    <span class="attr">desc</span>: <span class="string">&#x27;用于完善会员资料&#x27;</span>, <span class="comment">// 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写</span></span><br><span class="line">    <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">      <span class="keyword">let</span> info = res.<span class="property">userInfo</span>;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">        <span class="attr">isLogin</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">src</span>: info.<span class="property">avatarUrl</span>,</span><br><span class="line">        <span class="attr">nickName</span>: info.<span class="property">nickName</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">getMyFavorites</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>为了在个人中心页可以跳转至新闻，我们需要添加getToDetail函数至my.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">goToDetail</span>: <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">   <span class="comment">//获取携带的data-id数据</span></span><br><span class="line">   <span class="keyword">let</span> id = e.<span class="property">currentTarget</span>.<span class="property">dataset</span>.<span class="property">id</span>;</span><br><span class="line">   <span class="comment">//携带新闻id进行页面跳转</span></span><br><span class="line">   wx.<span class="title function_">navigateTo</span>(&#123;</span><br><span class="line">     <span class="attr">url</span>: <span class="string">&#x27;../detail/detail?id=&#x27;</span> + id</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>最后，在my.js中添加生命周期函数，用于监听页面显示</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">onShow</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">isLogin</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">getMyFavorites</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="程序运行结果"><a href="#程序运行结果" class="headerlink" title="程序运行结果"></a>程序运行结果</h2><p><img src="https://s2.loli.net/2022/08/24/VmkWHdy2L5T6Pol.png"></p>
+<p><img src="https://s2.loli.net/2022/08/24/CuZynMmHlS3gRLw.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/23/%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%B8%89-%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -212,7 +374,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-08-23 18:39:12 / 修改时间：20:53:36" itemprop="dateCreated datePublished" datetime="2022-08-23T18:39:12+08:00">2022-08-23</time>
+      <time title="创建时间：2022-08-23 18:39:12 / 修改时间：21:00:38" itemprop="dateCreated datePublished" datetime="2022-08-23T18:39:12+08:00">2022-08-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1155,104 +1317,6 @@
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>这道题考查了双指针的用法。首先创建两个指针，first、second。 让first先走k个距离，这样second与first之间的距离就是k，然后让second和first一起走，first走到NULL时，second所在的位置就是倒数第k个。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* pre = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">        ListNode* p = pre;</span><br><span class="line">        <span class="keyword">while</span>(list1 &amp;&amp; list2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(list1-&gt;val &lt; list2-&gt;val)&#123;</span><br><span class="line">                p-&gt;next = list1;</span><br><span class="line">                list1 = list1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                p-&gt;next = list2;</span><br><span class="line">                list2 = list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(list1)</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;next = list1;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;next = list2;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/15/PAT-%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓今天debug了吗">
-      <meta itemprop="description" content="一个记录成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/15/PAT-%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95/" class="post-title-link" itemprop="url">PAT-科学计数法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-08-15 18:42:46 / 修改时间：19:43:21" itemprop="dateCreated datePublished" datetime="2022-08-15T18:42:46+08:00">2022-08-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="科学计数法"><a href="#科学计数法" class="headerlink" title="科学计数法"></a>科学计数法</h3><p>科学计数法是科学家轻松处理非常大或非常小的数字的方式。</p>
-<p>这种表示法与正则表达式 [+-][1-9].[0-9]+E[+-][0-9]+ 相匹配。</p>
-<p>整数部分恰好一位，小数部分至少一位，数字以及指数的正负必须给出，即使均为正，也要给出 <code>+</code>。</p>
-<p>现在给定科学计数法表示的实数 A，请你在<strong>保留所有有效数字</strong>的情况下以常规计数法输出 AA。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>共一行，包含科学计数法表示的实数 A。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出常规计数法表示的 A，注意保留所有有效数字，包括尾部 0。</p>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>输入数字的长度不超过 9999 字节，指数的绝对值不超过 9999。</p>
-<h4 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+1.23400E-03</span><br></pre></td></tr></table></figure>
-
-<h4 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.00123400</span><br></pre></td></tr></table></figure>
-
-<h4 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1.2E+10</span><br></pre></td></tr></table></figure>
-
-<h4 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-12000000000</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>我们需要把输入样例做个处理，首先我们要把所有数字取出来，比如样例1的处理结果就是123400</p>
-<p>然后我们再根据E后面的数字来做判断，不懂的可以再看看代码注释。</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    </span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>) cout &lt;&lt; <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> k = s.<span class="built_in">find</span>(<span class="string">&quot;E&quot;</span>); <span class="comment">// 找到E的位置</span></span><br><span class="line">    </span><br><span class="line">    string num = s[<span class="number">1</span>] + s.<span class="built_in">substr</span>(<span class="number">3</span> ,k - <span class="number">3</span>); <span class="comment">//取出所有数字</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> b = <span class="built_in">stoi</span>(s.<span class="built_in">substr</span>(k + <span class="number">1</span>)); <span class="comment">//将E后面的数转换为数字</span></span><br><span class="line">    b++; <span class="comment">// 因为科学计数法的方法是x.xxxx,所以我们要把b加一</span></span><br><span class="line">   </span><br><span class="line">    <span class="comment">// 根据b的大小分别判断结果</span></span><br><span class="line">    <span class="keyword">if</span>(b &lt;= <span class="number">0</span>) num = <span class="string">&quot;0.&quot;</span> + <span class="built_in">string</span>(-b, <span class="string">&#x27;0&#x27;</span>) + num;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(b &gt;= num.<span class="built_in">size</span>())  num += <span class="built_in">string</span>(b - num.<span class="built_in">size</span>(), <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">else</span> num = num.<span class="built_in">substr</span>(<span class="number">0</span>, b) + <span class="string">&#x27;.&#x27;</span> + num.<span class="built_in">substr</span>(b);<span class="comment">// 小数点后所有的数</span></span><br><span class="line">        </span><br><span class="line">    cout &lt;&lt; num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
