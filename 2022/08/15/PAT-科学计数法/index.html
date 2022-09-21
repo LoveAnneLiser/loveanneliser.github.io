@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","Muse | Mist":260,"width":260,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="科学计数法科学计数法是科学家轻松处理非常大或非常小的数字的方式。 这种表示法与正则表达式 [+-][1-9].[0-9]+E[+-][0-9]+ 相匹配。 整数部分恰好一位，小数部分至少一位，数字以及指数的正负必须给出，即使均为正，也要给出 +。 现在给定科学计数法表示的实数 A，请你在保留所有有效数字的情况下以常规计数法输出 AA。 输入格式共一行，包含科学计数法表示的实数 A。 输出格式输出常">
+    <meta name="description" content="科学计数法科学计数法是科学家轻松处理非常大或非常小的数字的方式。 这种表示法与正则表达式 [+-][1-9].[0-9]+E[+-][0-9]+ 相匹配。 整数部分恰好一位，小数部分至少一位，数字以及指数的正负必须给出，即使均为正，也要给出 +。 现在给定科学计数法表示的实数 A，请你在保留所有有效数字的情况下以常规计数法输出 AA。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PAT-科学计数法">
 <meta property="og:url" content="http://example.com/2022/08/15/PAT-%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95/index.html">
 <meta property="og:site_name" content="小卓今天debug了吗">
-<meta property="og:description" content="科学计数法科学计数法是科学家轻松处理非常大或非常小的数字的方式。 这种表示法与正则表达式 [+-][1-9].[0-9]+E[+-][0-9]+ 相匹配。 整数部分恰好一位，小数部分至少一位，数字以及指数的正负必须给出，即使均为正，也要给出 +。 现在给定科学计数法表示的实数 A，请你在保留所有有效数字的情况下以常规计数法输出 AA。 输入格式共一行，包含科学计数法表示的实数 A。 输出格式输出常">
+<meta property="og:description" content="科学计数法科学计数法是科学家轻松处理非常大或非常小的数字的方式。 这种表示法与正则表达式 [+-][1-9].[0-9]+E[+-][0-9]+ 相匹配。 整数部分恰好一位，小数部分至少一位，数字以及指数的正负必须给出，即使均为正，也要给出 +。 现在给定科学计数法表示的实数 A，请你在保留所有有效数字的情况下以常规计数法输出 AA。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-15T10:42:46.000Z">
-<meta property="article:modified_time" content="2022-08-15T11:43:21.173Z">
+<meta property="article:modified_time" content="2022-09-21T06:30:41.832Z">
 <meta property="article:author" content="卓壹术姬">
 <meta property="article:tag" content="字符串">
 <meta name="twitter:card" content="summary">
@@ -215,9 +215,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-15 18:42:46 / 修改时间：19:43:21" itemprop="dateCreated datePublished" datetime="2022-08-15T18:42:46+08:00">2022-08-15</time>
+      <time title="创建时间：2022-08-15 18:42:46" itemprop="dateCreated datePublished" datetime="2022-08-15T18:42:46+08:00">2022-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-21 14:30:41" itemprop="dateModified" datetime="2022-09-21T14:30:41+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -250,6 +256,8 @@
 <p>这种表示法与正则表达式 [+-][1-9].[0-9]+E[+-][0-9]+ 相匹配。</p>
 <p>整数部分恰好一位，小数部分至少一位，数字以及指数的正负必须给出，即使均为正，也要给出 <code>+</code>。</p>
 <p>现在给定科学计数法表示的实数 A，请你在<strong>保留所有有效数字</strong>的情况下以常规计数法输出 AA。</p>
+<span id="more"></span>
+
 <h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>共一行，包含科学计数法表示的实数 A。</p>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出常规计数法表示的 A，注意保留所有有效数字，包括尾部 0。</p>
 <h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>输入数字的长度不超过 9999 字节，指数的绝对值不超过 9999。</p>

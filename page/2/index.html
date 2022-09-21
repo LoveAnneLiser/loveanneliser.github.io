@@ -210,9 +210,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-16 00:10:06 / 修改时间：00:16:12" itemprop="dateCreated datePublished" datetime="2022-08-16T00:10:06+08:00">2022-08-16</time>
+      <time title="创建时间：2022-08-16 00:10:06" itemprop="dateCreated datePublished" datetime="2022-08-16T00:10:06+08:00">2022-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-21 14:30:26" itemprop="dateModified" datetime="2022-09-21T14:30:26+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -236,9 +242,14 @@
     <div class="post-body" itemprop="articleBody">
           <p>原题链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/c32eOV/">链表中环的入口结点</a></p>
 <p><img src="https://s2.loli.net/2022/08/16/Rly1YFr9tkTw4MN.png"></p>
-<h3 id="思路-快慢指针"><a href="#思路-快慢指针" class="headerlink" title="思路: 快慢指针"></a>思路: 快慢指针</h3><p>当两个指针进入环后有一个相遇结点，慢指针走了X+Y，因为快指针走的长度是慢指针的两倍，所以快指针走了2*(X+Y)。现在求相遇结点到入口结点的距离：2*（X+Y)-X-Y-Y&#x3D;X; 所以我们发现，（相遇结点到入口节点的距离） &#x3D;&#x3D; （头指针到入口结点的距离），那么此时只需要将快指针返回头指针，然后一步一步走，而慢指针也一步一步走，两个指针第二次相遇的结点就是入口结点。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">detectCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">nullptr</span>) </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* fast = head;;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span>(fast != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(slow == fast)</span><br><span class="line">            &#123;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(fast == <span class="literal">nullptr</span> || fast-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        fast = head;</span><br><span class="line">        <span class="keyword">while</span>(fast!=slow)</span><br><span class="line">        &#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/16/%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E7%BB%93%E7%82%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -300,7 +311,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-16 00:07:14" itemprop="dateModified" datetime="2022-08-16T00:07:14+08:00">2022-08-16</time>
+      <time title="修改时间：2022-09-21 14:30:33" itemprop="dateModified" datetime="2022-09-21T14:30:33+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -324,10 +335,14 @@
     <div class="post-body" itemprop="articleBody">
           <p>原题链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-node-from-end-of-list-lcci/">返回倒数第K个结点</a></p>
 <p><img src="https://s2.loli.net/2022/08/16/UDr4YixHAn1TvfP.png"></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>这道题考查了双指针的用法。首先创建两个指针，first、second。 让first先走k个距离，这样second与first之间的距离就是k，然后让second和first一起走，first走到NULL时，second所在的位置就是倒数第k个。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* pre = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">        ListNode* p = pre;</span><br><span class="line">        <span class="keyword">while</span>(list1 &amp;&amp; list2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(list1-&gt;val &lt; list2-&gt;val)&#123;</span><br><span class="line">                p-&gt;next = list1;</span><br><span class="line">                list1 = list1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                p-&gt;next = list2;</span><br><span class="line">                list2 = list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(list1)</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;next = list1;</span><br><span class="line">           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;next = list2;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/15/%E8%BF%94%E5%9B%9E%E5%80%92%E6%95%B0%E7%AC%ACK%E4%B8%AA%E7%BB%93%E7%82%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -381,9 +396,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-15 18:42:46 / 修改时间：19:43:21" itemprop="dateCreated datePublished" datetime="2022-08-15T18:42:46+08:00">2022-08-15</time>
+      <time title="创建时间：2022-08-15 18:42:46" itemprop="dateCreated datePublished" datetime="2022-08-15T18:42:46+08:00">2022-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-21 14:30:41" itemprop="dateModified" datetime="2022-09-21T14:30:41+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -409,23 +430,14 @@
 <p>这种表示法与正则表达式 [+-][1-9].[0-9]+E[+-][0-9]+ 相匹配。</p>
 <p>整数部分恰好一位，小数部分至少一位，数字以及指数的正负必须给出，即使均为正，也要给出 <code>+</code>。</p>
 <p>现在给定科学计数法表示的实数 A，请你在<strong>保留所有有效数字</strong>的情况下以常规计数法输出 AA。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>共一行，包含科学计数法表示的实数 A。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出常规计数法表示的 A，注意保留所有有效数字，包括尾部 0。</p>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>输入数字的长度不超过 9999 字节，指数的绝对值不超过 9999。</p>
-<h4 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+1.23400E-03</span><br></pre></td></tr></table></figure>
-
-<h4 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.00123400</span><br></pre></td></tr></table></figure>
-
-<h4 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1.2E+10</span><br></pre></td></tr></table></figure>
-
-<h4 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-12000000000</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>我们需要把输入样例做个处理，首先我们要把所有数字取出来，比如样例1的处理结果就是123400</p>
-<p>然后我们再根据E后面的数字来做判断，不懂的可以再看看代码注释。</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    </span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>) cout &lt;&lt; <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> k = s.<span class="built_in">find</span>(<span class="string">&quot;E&quot;</span>); <span class="comment">// 找到E的位置</span></span><br><span class="line">    </span><br><span class="line">    string num = s[<span class="number">1</span>] + s.<span class="built_in">substr</span>(<span class="number">3</span> ,k - <span class="number">3</span>); <span class="comment">//取出所有数字</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> b = <span class="built_in">stoi</span>(s.<span class="built_in">substr</span>(k + <span class="number">1</span>)); <span class="comment">//将E后面的数转换为数字</span></span><br><span class="line">    b++; <span class="comment">// 因为科学计数法的方法是x.xxxx,所以我们要把b加一</span></span><br><span class="line">   </span><br><span class="line">    <span class="comment">// 根据b的大小分别判断结果</span></span><br><span class="line">    <span class="keyword">if</span>(b &lt;= <span class="number">0</span>) num = <span class="string">&quot;0.&quot;</span> + <span class="built_in">string</span>(-b, <span class="string">&#x27;0&#x27;</span>) + num;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(b &gt;= num.<span class="built_in">size</span>())  num += <span class="built_in">string</span>(b - num.<span class="built_in">size</span>(), <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">else</span> num = num.<span class="built_in">substr</span>(<span class="number">0</span>, b) + <span class="string">&#x27;.&#x27;</span> + num.<span class="built_in">substr</span>(b);<span class="comment">// 小数点后所有的数</span></span><br><span class="line">        </span><br><span class="line">    cout &lt;&lt; num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/15/PAT-%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -479,9 +491,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-14 14:11:23 / 修改时间：14:23:41" itemprop="dateCreated datePublished" datetime="2022-08-14T14:11:23+08:00">2022-08-14</time>
+      <time title="创建时间：2022-08-14 14:11:23" itemprop="dateCreated datePublished" datetime="2022-08-14T14:11:23+08:00">2022-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-21 14:30:55" itemprop="dateModified" datetime="2022-09-21T14:30:55+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -505,13 +523,14 @@
     <div class="post-body" itemprop="articleBody">
           <p>原题链接: <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-pairs/">翻转对</a></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题是用<strong>归并排序</strong>的方法，归并排序是先找到临界点mid，然后开始<strong>递归</strong>，left<del>mid的数据排好序，mid+1</del>right的数据排好序，再在合并之前判断nums[i]和nums[j] * 2的大小，随后就是归并。<br>这道题要注意的是<strong>长整数型</strong>！搞了好久才搞出来….</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="type">long</span> tmp[<span class="number">50010</span>]; <span class="comment">// 用一个临时数组存放结果</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">merge_sorte</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums,<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left &gt;= right) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = (left + right) / <span class="number">2</span>; </span><br><span class="line">        <span class="type">int</span> res = <span class="built_in">merge_sorte</span>(nums, left, mid) + <span class="built_in">merge_sorte</span>(nums, mid + <span class="number">1</span>, right); <span class="comment">//递归</span></span><br><span class="line">        <span class="type">int</span> i = left, j = mid + <span class="number">1</span>, k = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span>((<span class="type">long</span> <span class="type">long</span>)nums[i] &gt; <span class="number">2</span> * (<span class="type">long</span> <span class="type">long</span>)nums[j]) &#123;</span><br><span class="line">                res += mid - i + <span class="number">1</span>; <span class="comment">// 公式</span></span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//上面就是判断过程 是重点 下面的是归并排序的合并模版</span></span><br><span class="line">      </span><br><span class="line">        i = left;</span><br><span class="line">        j = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= right ) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt; nums[j]) &#123;</span><br><span class="line">                tmp[k++] = nums[i++];</span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                tmp[k++] = nums[j++];     </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt;= mid) tmp[k++] = nums[i++];</span><br><span class="line">        <span class="keyword">while</span>(j &lt;= right) tmp[k++] = nums[j++];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = left,j = <span class="number">0</span> ; i &lt;= right;i++,j++) &#123;</span><br><span class="line">            nums[i] = tmp[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reversePairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">merge_sorte</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/14/leetcode-493-%E7%BF%BB%E8%BD%AC%E5%AF%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -565,9 +584,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-13 23:29:40 / 修改时间：23:38:33" itemprop="dateCreated datePublished" datetime="2022-08-13T23:29:40+08:00">2022-08-13</time>
+      <time title="创建时间：2022-08-13 23:29:40" itemprop="dateCreated datePublished" datetime="2022-08-13T23:29:40+08:00">2022-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-21 14:31:09" itemprop="dateModified" datetime="2022-09-21T14:31:09+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -592,9 +617,14 @@
           <p>​	原题链接： <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/">leetcode1926.迷宫中离入口最近的出口</a></p>
 <p><img src="https://s2.loli.net/2022/08/13/e6jz7Mkq8NwDHWv.png"></p>
 <p>这道题的思路和这道<a target="_blank" rel="noopener" href="https://loveanneliser.github.io/2022/08/13/%E8%B5%B0%E8%BF%B7%E5%AE%AB-%E7%BB%8F%E5%85%B8bfs/">走迷宫</a>的题是一个思路，也是用到bfs算法。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> d[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">bfs</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; maze, vector&lt;<span class="type">int</span>&gt;&amp; entrance)</span> </span>&#123;</span><br><span class="line">        queue&lt;PII&gt; que;</span><br><span class="line">        <span class="built_in">memset</span>(d, <span class="number">-1</span>, <span class="keyword">sizeof</span> d);</span><br><span class="line">        <span class="type">int</span> n = maze[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> m = maze.<span class="built_in">size</span>();</span><br><span class="line">        </span><br><span class="line">        d[entrance[<span class="number">0</span>]][entrance[<span class="number">1</span>]] = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        que.<span class="built_in">push</span>(&#123;entrance[<span class="number">0</span>], entrance[<span class="number">1</span>]&#125;);</span><br><span class="line">        <span class="keyword">while</span>(!que.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = que.<span class="built_in">front</span>();</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">                <span class="type">int</span> x = t.first + dx[i];</span><br><span class="line">                <span class="type">int</span> y = t.second + dy[i];</span><br><span class="line">                <span class="keyword">if</span>(x &lt; m &amp;&amp; x &gt;= <span class="number">0</span> &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">                         y &lt; n &amp;&amp; maze[x][y] == <span class="string">&#x27;.&#x27;</span>  &amp;&amp; d[x][y] == <span class="number">-1</span>)&#123;      </span><br><span class="line">                    d[x][y] = d[t.first][t.second] + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">if</span>(x == <span class="number">0</span> || x == m - <span class="number">1</span> || y == <span class="number">0</span> || y == n - <span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> d[x][y];</span><br><span class="line">                    &#125;</span><br><span class="line">                   </span><br><span class="line">                    que.<span class="built_in">push</span>(&#123;x, y&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">nearestExit</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; maze, vector&lt;<span class="type">int</span>&gt;&amp; entrance)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">bfs</span>(maze, entrance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/13/leetcode-1926-%E8%BF%B7%E5%AE%AB%E4%B8%AD%E7%A6%BB%E5%85%A5%E5%8F%A3%E6%9C%80%E8%BF%91%E7%9A%84%E5%87%BA%E5%8F%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -648,9 +678,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-13 20:21:57 / 修改时间：21:00:02" itemprop="dateCreated datePublished" datetime="2022-08-13T20:21:57+08:00">2022-08-13</time>
+      <time title="创建时间：2022-08-13 20:21:57" itemprop="dateCreated datePublished" datetime="2022-08-13T20:21:57+08:00">2022-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-21 14:31:31" itemprop="dateModified" datetime="2022-09-21T14:31:31+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -676,34 +712,14 @@
 <p>最初，有一个人位于左上角 (1,1) 处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。</p>
 <p>请问，该人从左上角移动至右下角 (n,m)  处，至少需要移动多少次。</p>
 <p>数据保证 (1,1)处和 (n,m) 处的数字为 0，且一定至少存在一条通路。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行包含两个整数 n和 m。</p>
-<p>接下来 n 行，每行包含 m 个整数（0 或 1），表示完整的二维数组迷宫。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个整数，表示从左上角移动至右下角的最少移动次数。</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 5</span><br><span class="line">0 1 0 0 0</span><br><span class="line">0 1 0 1 0</span><br><span class="line">0 0 0 0 0</span><br><span class="line">0 1 1 1 0</span><br><span class="line">0 0 0 1 0</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="数据范围："><a href="#数据范围：" class="headerlink" title="数据范围："></a>数据范围：</h3><h4 id="1≤n-m≤100"><a href="#1≤n-m≤100" class="headerlink" title="1≤n,m≤100"></a>1≤n,m≤100</h4><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>​	</p>
-<p>​	变量说明：<code>d[N][N]</code>是<code>d[0][0]</code>到<code>d[i][j]</code>的距离 ，<code>g[N][N]</code>就是我们设计的迷宫。</p>
-<p>​	首先，我们需要知道的是，广度优先搜索可以很快找到最近的点。设计完迷宫以后，我们就利用bfs来解题。</p>
-<p>​	bfs有一个套路就是会设置一个队列，那我们就先建立一个队列， 为了方便二维数组的运算我们设置一个<code>pair&lt;int, int&gt;</code>的队列。</p>
-<p>​	把<code>d[N][N]</code>全部设置为-1， 表示全都没有经过。把起点设置为0，并将起点入队。</p>
-<p>​	设置偏移量<code>dx[4]= &#123;-1, 0, 1, 0&#125;</code>, <code>dy[4] = &#123;0, 1, 0, -1&#125;</code>表示左上右下。</p>
-<p>​	将图中元素一个一个入队，当点为0且位于迷宫内，且没走过就入队，然后距离加1。</p>
-<p>​	最后<code>d[n][m]</code>的值就是最短的距离。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> d[N][N];</span><br><span class="line"><span class="type">int</span> g[N][N];</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    queue&lt;PII&gt; que;</span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">-1</span>, <span class="keyword">sizeof</span> d);</span><br><span class="line">    </span><br><span class="line">    d[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    que.<span class="built_in">push</span>(&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(!que.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="keyword">auto</span> t = que.<span class="built_in">front</span>();</span><br><span class="line">        que.<span class="built_in">pop</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="type">int</span> x = t.first + dx[i], y = t.second + dy[i];</span><br><span class="line">            <span class="keyword">if</span>(x &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; m &amp;&amp; g[x][y] == <span class="number">0</span> &amp;&amp; d[x][y] == <span class="number">-1</span>) &#123;</span><br><span class="line">                d[x][y] = d[t.first][t.second] + <span class="number">1</span>;</span><br><span class="line">                que.<span class="built_in">push</span>(&#123;x, y&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d[n - <span class="number">1</span>][m - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">            cin &gt;&gt; g[i][j];</span><br><span class="line">            </span><br><span class="line">    cout &lt;&lt; <span class="built_in">bfs</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/13/%E8%B5%B0%E8%BF%B7%E5%AE%AB-%E7%BB%8F%E5%85%B8bfs/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -945,7 +961,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-14 15:06:52" itemprop="dateModified" datetime="2022-08-14T15:06:52+08:00">2022-08-14</time>
+      <time title="修改时间：2022-09-21 14:30:52" itemprop="dateModified" datetime="2022-09-21T14:30:52+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -969,52 +985,14 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="前面的话："><a href="#前面的话：" class="headerlink" title="前面的话："></a>前面的话：</h2><p>​		刚自学了一点操作系统知识，总觉得对一些概念不是很理解，于是打算开始实验之路。</p>
 <h2 id="课程介绍：这门课是mit本科生操作系统课程，有丰富的教学资源和足够锻炼编程能力的lab，这门课对于计算机基础的理解十分重要。"><a href="#课程介绍：这门课是mit本科生操作系统课程，有丰富的教学资源和足够锻炼编程能力的lab，这门课对于计算机基础的理解十分重要。" class="headerlink" title="课程介绍：这门课是mit本科生操作系统课程，有丰富的教学资源和足够锻炼编程能力的lab，这门课对于计算机基础的理解十分重要。"></a>课程介绍：这门课是mit本科生操作系统课程，有丰富的教学资源和足够锻炼编程能力的lab，这门课对于计算机基础的理解十分重要。</h2><p>网址：<a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2021/schedule.html">https://pdos.csail.mit.edu/6.828/2021/schedule.html</a></p>
-<h2 id="一-实验环境的配置"><a href="#一-实验环境的配置" class="headerlink" title="一.实验环境的配置"></a>一.实验环境的配置</h2><p>实验指导书上面说必须使用x86机器进行实验，但是我在M1pro的芯片上可以完美运行实验，不过我们需要进行一些配置。</p>
-<p>如果你已经有一个ubuntu系统，请直接跳到4.</p>
-<p>实验要求的ubuntu系统为20.04</p>
-<h3 id="1-下载docker"><a href="#1-下载docker" class="headerlink" title="1.下载docker"></a>1.下载docker</h3><p><img src="https://s2.loli.net/2022/08/10/PcO8dT27DRWSrNF.png"></p>
-<p>选择desktop，左边的那个下载。</p>
-<p>打开终端，输入<code>docker --version</code>查看自己的docker是否安装好</p>
-<h3 id="2-配置镜像源："><a href="#2-配置镜像源：" class="headerlink" title="2. 配置镜像源："></a>2. 配置镜像源：</h3><p><img src="https://s2.loli.net/2022/08/10/9nTCwx7Bhqk8aRd.png"></p>
-<p>修改Docker Engine：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://hub-mirror.c.163.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://mirror.baidubce.com&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>或者使用中科大镜像：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">     <span class="string">&quot;https://docker.mirrors.ustc.edu.cn/&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>然后执行这个命令：<code>docker pull ubuntu</code></p>
-<p>再执行<code>docker image ls</code>查看镜像是否生成</p>
-<p><img src="https://s2.loli.net/2022/08/10/2rKUxjypgdORuY3.png"></p>
-<h3 id="3-创建容器并配置ubuntu"><a href="#3-创建容器并配置ubuntu" class="headerlink" title="3. 创建容器并配置ubuntu"></a>3. 创建容器并配置ubuntu</h3><p>使用<code>docker run -i -t --name test0s ubuntu bash </code> 创建一个容器，对容器和镜像的概念不太清楚的朋友可以搜一下这两个东西。</p>
-<p><img src="https://s2.loli.net/2022/08/10/hIaXsr4V9S7oN18.png"></p>
-<p>麻了..本来想创建叫testos的，结果写成了0s，无所谓啦。</p>
-<p>这里意思就是创建一个名称是test0s的ubuntu系统。</p>
-<p>从截图来看，我们已经创建好ubuntu了，此时仍然需要一些配置。</p>
-<p>接着，我们执行这个命令：<code>apt-get update</code>,  然后安装vim： <code>apt-get install vim</code></p>
-<p> 进入到<code>/etc/apt/</code>, 新建一个source.list的文件， 或者直接<code>vim /etc/apt/etc/apt/source.list  </code>进行配置。</p>
-<p>添加这些软件源：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse </span><br></pre></td></tr></table></figure>
-
-<p>再然后<code>apt-get update</code>，软件源的配置就完成了, 其实当配置完镜像源后速度就快了许多。</p>
-<p>安装完这些大概花了30分钟甚至更久。</p>
-<h3 id="4-配置实验所需资源"><a href="#4-配置实验所需资源" class="headerlink" title="4. 配置实验所需资源"></a>4. 配置实验所需资源</h3><p><code>sudo apt-get install git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu </code> (没有一次成功就多执行几次， 再不成功就先去克隆仓库，然后重新执行)</p>
-<p><code>sudo apt-get remove qemu-system-misc</code></p>
-<p><code>sudo apt-get install qemu-system-misc=1:4.2-3ubuntu6</code></p>
-<p>上面这三个多执行几次，一定会成功，亲测有效</p>
-<p>完成这三个步骤以后，</p>
-<p><code>git clone git://g.csail.mit.edu/xv6-labs-2021</code></p>
-<p><code>cd xv6-labs-2021</code></p>
-<p><code>git checkout util</code></p>
-<p><code>make qemu</code></p>
-<p><code>ls</code></p>
-<p><img src="https://s2.loli.net/2022/08/10/yYCHG9X6lQMkjK1.png"></p>
-<p><strong>退出qemu环境的命令：ctrl + a 松手，再按x</strong></p>
-<p><strong>这样就完成实验配件的配置啦！</strong></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F6-S081-LAb1-Xv6-and-Unix-utilities/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1076,7 +1054,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-14 14:19:49" itemprop="dateModified" datetime="2022-08-14T14:19:49+08:00">2022-08-14</time>
+      <time title="修改时间：2022-09-21 14:31:03" itemprop="dateModified" datetime="2022-09-21T14:31:03+08:00">2022-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1102,17 +1080,14 @@
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>每头牛都有自己的体重以及力量，编号为 $i$ 的奶牛的体重为 $W_i$，力量为 $S_i$。</p>
 <p>当某头牛身上站着另一些牛时它就会在一定程度上被压扁，我们不妨把它被压扁的程度叫做它的压扁指数。对于任意的牛，她的压扁指数等于摞在她上面的所有奶牛的总重（当然不包括她自己）减去它的力量。奶牛们按照一定的顺序摞在一起后， 她们的总压扁指数就是被压得最扁的那头奶牛的压扁指数。</p>
 <p>你的任务就是帮助奶牛们找出一个摞在一起的顺序，使得总压扁指数最小。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个整数 $N$。</p>
-<p>接下来 $N$ 行，每行两个整数 $W_i$ 和 $S_i$。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行一个整数表示最小总压扁指数。</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">10 3</span><br><span class="line">2 5</span><br><span class="line">3 3</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于 $100%$ 的数据，$1 \le N \le 5\times 10^4$，$1 \le W_i \le 10^4$，$1 \le S_i \le 10^9$。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; cow[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="type">int</span> w, s;</span><br><span class="line">        cin &gt;&gt; w &gt;&gt; s;</span><br><span class="line">        cow[i].first = w + s;</span><br><span class="line">        cow[i].second = w;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">sort</span>(cow, cow + n);</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">-2e9</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="type">int</span> w = cow[i].second, s = cow[i].first - cow[i].second;</span><br><span class="line">        res = <span class="built_in">max</span>(res, sum - s);</span><br><span class="line">        sum += w;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/10/%E8%80%8D%E6%9D%82%E6%8A%80%E7%9A%84%E7%89%9B-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
