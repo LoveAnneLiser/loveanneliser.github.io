@@ -212,7 +212,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-10-01 18:43:53 / 修改时间：19:21:46" itemprop="dateCreated datePublished" datetime="2022-10-01T18:43:53+08:00">2022-10-01</time>
+      <time title="创建时间：2022-10-01 18:43:53 / 修改时间：19:27:58" itemprop="dateCreated datePublished" datetime="2022-10-01T18:43:53+08:00">2022-10-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,7 +258,10 @@
 </li>
 </ul>
 <p>​		意思就是，可以跑很多个ide，还可以看b站，还可以打游戏，还可以…</p>
-<h3 id="操作系统结构"><a href="#操作系统结构" class="headerlink" title="操作系统结构"></a>操作系统结构</h3><p>![](<a target="_blank" rel="noopener" href="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-01">https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-10-01</a> 18.43.03.png)</p>
+<h3 id="操作系统结构"><a href="#操作系统结构" class="headerlink" title="操作系统结构"></a>操作系统结构</h3><img src="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-10-01 18.43.03.png"/>
+
+
+
 <p>在这个架构的最上层，我们会运行各种各样的应用程序，或许有一个文本编辑器（VI），或许有一个C编译器（CC），你还可以运行大量我们今天会讨论的其他事物，例如作为CLI存在的Shell，所以这些就是正在运行的所有程序。这里程序都运行在同一个空间中，这个空间通常会被称为用户空间（Userspace）。</p>
 <p>Kernel是计算机资源的守护者。当你打开计算机时，Kernel总是第一个被启动。Kernel程序只有一个，它维护数据来管理每一个用户空间进程。Kernel同时还维护了大量的数据结构来帮助它管理各种各样的硬件资源，以供用户空间的程序使用。Kernel同时还有大量内置的服务，例如，Kernel通常会有文件系统实现类似文件名，文件内容，目录的东西，并理解如何将文件存储在磁盘中。所以用户空间的程序会与Kernel中的文件系统交互，文件系统再与磁盘交互。</p>
 <h3 id="学习操作系统的矛盾"><a href="#学习操作系统的矛盾" class="headerlink" title="学习操作系统的矛盾"></a>学习操作系统的矛盾</h3><ul>
