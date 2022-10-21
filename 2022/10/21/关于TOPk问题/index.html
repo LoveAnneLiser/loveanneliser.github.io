@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tb.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tb.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","Muse | Mist":260,"width":260,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="用堆解决TOPk问题leetcode.215 这道题是说找到所给数字中第k大的数，比如我们给出3, 2, 1, 5, 6, 4，k &#x3D; 2，所返回的结果应该是5 遇到这类问题除了想到sort，我们还可以用一个堆来解决。 在C++的STL中，可以用priority_queue来表示一个堆。 但是为了增加对堆的理解，我们试着手写一个简单的堆。 因为是求前k大的数，这里可以写一个大根堆 建堆的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用堆解决TOPk问题">
+<meta property="og:url" content="http://example.com/2022/10/21/%E5%85%B3%E4%BA%8ETOPk%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="小卓今天debug了吗">
+<meta property="og:description" content="用堆解决TOPk问题leetcode.215 这道题是说找到所给数字中第k大的数，比如我们给出3, 2, 1, 5, 6, 4，k &#x3D; 2，所返回的结果应该是5 遇到这类问题除了想到sort，我们还可以用一个堆来解决。 在C++的STL中，可以用priority_queue来表示一个堆。 但是为了增加对堆的理解，我们试着手写一个简单的堆。 因为是求前k大的数，这里可以写一个大根堆 建堆的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-21T12:14:07.000Z">
+<meta property="article:modified_time" content="2022-10-21T12:47:20.042Z">
+<meta property="article:author" content="卓壹术姬">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/10/21/%E5%85%B3%E4%BA%8ETOPk%E9%97%AE%E9%A2%98/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/21/%E5%85%B3%E4%BA%8ETOPk%E9%97%AE%E9%A2%98/","path":"2022/10/21/关于TOPk问题/","title":"用堆解决TOPk问题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>用堆解决TOPk问题 | 小卓今天debug了吗</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小卓今天debug了吗</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">未来可控不可知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">32</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E5%A0%86%E8%A7%A3%E5%86%B3TOPk%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">用堆解决TOPk问题</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="卓壹术姬"
+      src="/images/tx.gif">
+  <p class="site-author-name" itemprop="name">卓壹术姬</p>
+  <div class="site-description" itemprop="description">一个记录成长的网页</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LoveAnneLiser" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LoveAnneLiser" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/21/%E5%85%B3%E4%BA%8ETOPk%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用堆解决TOPk问题 | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用堆解决TOPk问题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-21 20:14:07 / 修改时间：20:47:20" itemprop="dateCreated datePublished" datetime="2022-10-21T20:14:07+08:00">2022-10-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="用堆解决TOPk问题"><a href="#用堆解决TOPk问题" class="headerlink" title="用堆解决TOPk问题"></a>用堆解决TOPk问题</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-largest-element-in-an-array/">leetcode.215</a></p>
+<p>这道题是说找到所给数字中第k大的数，比如我们给出3, 2, 1, 5, 6, 4，k &#x3D; 2，所返回的结果应该是5</p>
+<p>遇到这类问题除了想到sort，我们还可以用一个堆来解决。</p>
+<p>在C++的STL中，可以用priority_queue来表示一个堆。</p>
+<p>但是为了增加对堆的理解，我们试着手写一个简单的堆。</p>
+<p>因为是求<strong>前k大</strong>的数，这里可以写一个大根堆</p>
+<p>建堆的过程如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">build</span><span class="params">(n)</span> </span>&#123; <span class="comment">// n表示有多少个数</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123; <span class="comment">// i从1开始的原因是，堆的左儿子为 i*2，右儿子为 i*2+1，如果为0就无效了</span></span><br><span class="line">		cin &gt;&gt; h[i];</span><br><span class="line">	&#125;</span><br><span class="line">	hsize = n;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 此时只是输入了数据，我们要开始建一个堆了</span></span><br><span class="line"><span class="comment">// 为了调整堆，可以从n / 2开始，也就是最下层节点的上面所有数，将这些数down下去，因为最下层下面没有数了，所以可以不管</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = n / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">		<span class="built_in">down</span>(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 上面操作完成以后，一个大根堆就实现啦！</span></span><br></pre></td></tr></table></figure>
+
+<p>下面是关键步骤：交换（父节点比儿子节点小的位置）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t = u;</span><br><span class="line">	<span class="keyword">if</span>(u * <span class="number">2</span> &lt;= hsize &amp;&amp; h[t] &lt; h[u * <span class="number">2</span>]) t = u * <span class="number">2</span>; <span class="comment">//如果父节点小于儿子，把它们压下去</span></span><br><span class="line">	<span class="keyword">if</span>(u * <span class="number">2</span> + <span class="number">1</span> &lt;= hsize &amp;&amp; h[t] &lt; h[u * <span class="number">2</span> + <span class="number">1</span>]) t = u * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(t != u) &#123;</span><br><span class="line">		<span class="built_in">swap</span>(h[t], h[u]);</span><br><span class="line">		<span class="built_in">down</span>(t);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完整代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> h[<span class="number">100010</span>];</span><br><span class="line">    <span class="type">int</span> hsize;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> t = u;</span><br><span class="line">        <span class="keyword">if</span>(u * <span class="number">2</span> &lt;= hsize &amp;&amp; h[t] &lt; h[u * <span class="number">2</span>]) t = u * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(u * <span class="number">2</span> + <span class="number">1</span> &lt;= hsize &amp;&amp; h[t] &lt; h[u * <span class="number">2</span> + <span class="number">1</span>]) t = u * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(t != u) &#123;</span><br><span class="line">            <span class="built_in">swap</span>(h[t], h[u]);</span><br><span class="line">            <span class="built_in">down</span>(t);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        hsize = nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= hsize; i++) &#123;</span><br><span class="line">            h[i] = nums[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = hsize / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">            <span class="built_in">down</span>(i);</span><br><span class="line">        &#125;   </span><br><span class="line">        </span><br><span class="line">    <span class="comment">// 我们现在需要做的就是查找第k个数</span></span><br><span class="line">	<span class="comment">// 只需要删除k - 1次根节点就好</span></span><br><span class="line">	</span><br><span class="line">        k--;</span><br><span class="line">        <span class="keyword">while</span>(k--) &#123;</span><br><span class="line">            h[<span class="number">1</span>] = h[hsize];</span><br><span class="line">            hsize--;</span><br><span class="line">            <span class="built_in">down</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> h[<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>那如果是前k小的数呢？我们在这时也可以用<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/840/">堆排序</a></p>
+<p>思路和力扣的题是一样的，我们只需要换成<strong>小根堆</strong>就好啦</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> h[N], hsize;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> t = u;</span><br><span class="line">    <span class="keyword">if</span>(u * <span class="number">2</span> &lt;= hsize &amp;&amp; h[t] &gt; h[u * <span class="number">2</span>]) t = u * <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(u * <span class="number">2</span> + <span class="number">1</span> &lt;= hsize &amp;&amp; h[t] &gt; h[u * <span class="number">2</span> + <span class="number">1</span>]) t = u * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(t != u) &#123;</span><br><span class="line">        <span class="built_in">swap</span>(h[t], h[u]);</span><br><span class="line">        <span class="built_in">down</span>(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; h[i];</span><br><span class="line">    &#125;</span><br><span class="line">    hsize = n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        <span class="built_in">down</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(m--) &#123;</span><br><span class="line">        cout &lt;&lt; h[<span class="number">1</span>] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        h[<span class="number">1</span>] = h[hsize];</span><br><span class="line">        hsize--;</span><br><span class="line">        <span class="built_in">down</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/17/%E9%9A%8F%E5%A4%84%E5%8F%AF%E8%A7%81%E7%9A%84%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="prev" title="随处可见的红黑树">
+                  <i class="fa fa-chevron-left"></i> 随处可见的红黑树
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓壹术姬</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
