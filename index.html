@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">35</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">12</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">36</span></a></li>
   </ul>
 </nav>
 
@@ -128,13 +128,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -173,6 +173,116 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/06/%E5%88%9D%E6%8E%A2CMU15-445-%E4%B8%80-%E2%80%94%E2%80%94%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/06/%E5%88%9D%E6%8E%A2CMU15-445-%E4%B8%80-%E2%80%94%E2%80%94%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">初探CMU15-445(一)——关系模型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-11-06 21:10:03 / 修改时间：21:55:37" itemprop="dateCreated datePublished" datetime="2022-11-06T21:10:03+08:00">2022-11-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CMU15-445/" itemprop="url" rel="index"><span itemprop="name">CMU15-445</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>准备开始学习CMU15-445啦，其实好久以前就知道这门课，但是一直觉得好难学不下去，隔着几个月都想开始学习，第一节课看了好多次了但是都没有继续学习。写博客就是希望自己能够坚持下去并且学到点东西。</p>
+<h3 id="课程笔记"><a href="#课程笔记" class="headerlink" title="课程笔记"></a>课程笔记</h3><p>数据库：将<strong>相互关联</strong>的数据<strong>有组织地</strong>关联起来，是计算机应用的核心。</p>
+<img src="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-11-06 21.17.08.png"/>
+<img src="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-11-06 21.17.24.png"/>
+<img src="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-11-06 21.19.03.png"/>
+
+<p>这门课就是围绕以上几个问题展开：</p>
+<p>查询、一致性、安全等</p>
+<p>DBMS：是一个允许应用在一个数据库存储和分析信息的软件，主要目标是要提供一种可以方便、高效地存储数据库信息的途径。它的设计可以定义、创建、更新、查询、管理数据库。</p>
+<img src="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-11-06 21.32.15.png"/>
+
+<p>数据模型有关系数据、KV数据库、图数据库等……</p>
+<p>在这门课中我们主要学习关系型数据库。</p>
+<p><strong>relation</strong>：用来指表</p>
+<p>tuple：用来指行</p>
+<p>attribute：用来指表中的列</p>
+<p>primary-key:  关系的主键唯一标识一个元组，每个表都有主键，如果自己定义了查表的时候可以看到，如果没有定义是看不到的，但是有</p>
+<img src="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-11-06 21.33.51.png"/>
+
+<p>DML: 数据操纵语言，用来表达数据库的更新和查询</p>
+<p>有两种DML语言：</p>
+<ul>
+<li>过程化的DML：要求用户指定需要什么数据以及如何获得这些数据</li>
+<li>非过程化的DML：要求用户只能需要什么数据，而不指明如何获得这些数据</li>
+</ul>
+<p>在PPT中，将过程化DML称为关系代数</p>
+<p>关系代数的符号如下：</p>
+<img src="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-11-06 21.40.46.png"/>
+
+<p>我们在《数据库系统概念》的第二章可以看到关系代数的具体写法，可以发现这些语句就是能清楚的知道查询的数据以及如何获取这些数据。</p>
+<p>非过程化的DML，称为关系运算，它不用很仔细的写出如何获取这些数据，正所谓给的方法越少数据库越好查询？</p>
+<p>我们平时使用的mysql就是这种非过程化的DML。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -997,94 +1107,6 @@
 
 <h3 id="2-2"><a href="#2-2" class="headerlink" title="2-2"></a>2-2</h3><p>![](<a target="_blank" rel="noopener" href="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-30">https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-09-30</a> 18.02.36.png)<br>![](<a target="_blank" rel="noopener" href="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-30">https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-09-30</a> 18.02.52.png)<br>![](<a target="_blank" rel="noopener" href="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-30">https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-09-30</a> 18.03.01.png)<br>![](<a target="_blank" rel="noopener" href="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-30">https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-09-30</a> 18.03.20.png)<br>![](<a target="_blank" rel="noopener" href="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-30">https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-09-30</a> 18.03.25.png)<br>![](<a target="_blank" rel="noopener" href="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-30">https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-09-30</a> 18.03.31.png)<br>![](<a target="_blank" rel="noopener" href="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-30">https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/截屏2022-09-30</a> 18.03.36.png)</p>
 <h3 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h3>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/21/n%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓今天debug了吗">
-      <meta itemprop="description" content="一个记录成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/21/n%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">n皇后问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-09-21 19:54:30 / 修改时间：20:13:23" itemprop="dateCreated datePublished" datetime="2022-09-21T19:54:30+08:00">2022-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="n皇后问题"><a href="#n皇后问题" class="headerlink" title="n皇后问题"></a>n皇后问题</h2><p>n−皇后问题是指将 n个皇后放在 n×n 的国际象棋棋盘上，使得皇后不能相互攻击到，即任意两个皇后都不能处于同一行、同一列或同一斜线上。</p>
-<p><img src="https://cdn.acwing.com/media/article/image/2019/06/08/19_860e00c489-1_597ec77c49-8-queens.png" alt="1_597ec77c49-8-queens.png"></p>
-<p>现在给定整数 n，请你输出所有的满足条件的棋子摆法。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/09/21/n%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
