@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tb.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tb.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","Muse | Mist":260,"width":260,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="第一章 分布式系统分布式系统如果一个系统正常运行的条件是需要多个相关系统&#x2F;子系统共同协作，并且相关系统&#x2F;子系统分布在不同的服务器上，这整体就是一个分布式系统。 特性：  资源共享 高内聚低耦合  单节点的故障不会影响系统整体的运行。这就导致了使用分布式系统要考虑服务的集群，并支持主从。  拓展性  带来的问题：  技术复杂 网络稳定要求高 集群 分布式事务和分布式锁 分布式下的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《分布式中间件核心原理RocketMQ最佳实践》(一)">
+<meta property="og:url" content="http://example.com/2023/12/20/%E3%80%8A%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86RocketMQ%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B-%E4%B8%80/index.html">
+<meta property="og:site_name" content="小卓今天debug了吗">
+<meta property="og:description" content="第一章 分布式系统分布式系统如果一个系统正常运行的条件是需要多个相关系统&#x2F;子系统共同协作，并且相关系统&#x2F;子系统分布在不同的服务器上，这整体就是一个分布式系统。 特性：  资源共享 高内聚低耦合  单节点的故障不会影响系统整体的运行。这就导致了使用分布式系统要考虑服务的集群，并支持主从。  拓展性  带来的问题：  技术复杂 网络稳定要求高 集群 分布式事务和分布式锁 分布式下的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-20T08:56:40.000Z">
+<meta property="article:modified_time" content="2023-12-20T08:59:37.659Z">
+<meta property="article:author" content="卓壹术姬">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/12/20/%E3%80%8A%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86RocketMQ%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B-%E4%B8%80/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/12/20/%E3%80%8A%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86RocketMQ%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B-%E4%B8%80/","path":"2023/12/20/《分布式中间件核心原理RocketMQ最佳实践》-一/","title":"《分布式中间件核心原理RocketMQ最佳实践》(一)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>《分布式中间件核心原理RocketMQ最佳实践》(一) | 小卓今天debug了吗</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小卓今天debug了吗</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">未来可控不可知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">第一章 分布式系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">分布式系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">分布式中间件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-Spring%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">第二章 Spring微服务实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF"><span class="nav-number">3.</span> <span class="nav-text">第三章 容器技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker"><span class="nav-number">3.1.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K8s"><span class="nav-number">3.2.</span> <span class="nav-text">K8s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">第四章 消息中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E8%B0%83%E7%94%A8"><span class="nav-number">4.1.</span> <span class="nav-text">同步调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">异步调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">4.3.</span> <span class="nav-text">消息中间件的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84MQ%EF%BC%9A"><span class="nav-number">4.4.</span> <span class="nav-text">常用的MQ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RocketMQ%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84"><span class="nav-number">4.5.</span> <span class="nav-text">RocketMQ的基本架构</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="卓壹术姬"
+      src="/images/tx.gif">
+  <p class="site-author-name" itemprop="name">卓壹术姬</p>
+  <div class="site-description" itemprop="description">一个记录成长的网页</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LoveAnneLiser" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LoveAnneLiser" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/20/%E3%80%8A%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86RocketMQ%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B-%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="《分布式中间件核心原理RocketMQ最佳实践》(一) | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《分布式中间件核心原理RocketMQ最佳实践》(一)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-20 16:56:40 / 修改时间：16:59:37" itemprop="dateCreated datePublished" datetime="2023-12-20T16:56:40+08:00">2023-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/RocketMQ/" itemprop="url" rel="index"><span itemprop="name">RocketMQ</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+	  
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="第一章-分布式系统"><a href="#第一章-分布式系统" class="headerlink" title="第一章 分布式系统"></a>第一章 分布式系统</h2><h3 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h3><p>如果一个系统正常运行的条件是需要多个相关系统&#x2F;子系统共同协作，并且相关系统&#x2F;子系统分布在不同的服务器上，这整体就是一个分布式系统。</p>
+<p>特性：</p>
+<ul>
+<li>资源共享</li>
+<li>高内聚低耦合</li>
+</ul>
+<p>单节点的故障不会影响系统整体的运行。这就导致了使用分布式系统要考虑服务的集群，并支持主从。</p>
+<ul>
+<li>拓展性</li>
+</ul>
+<p>带来的问题：</p>
+<ol>
+<li>技术复杂</li>
+<li>网络稳定要求高</li>
+<li>集群</li>
+<li>分布式事务和分布式锁</li>
+<li>分布式下的唯一ID问题</li>
+</ol>
+<h3 id="分布式中间件"><a href="#分布式中间件" class="headerlink" title="分布式中间件"></a>分布式中间件</h3><p>分布式中间件是什么？</p>
+<ul>
+<li>就是为了解决的分布式系统架构所带来的问题。</li>
+<li>Mycat</li>
+<li>RocketMQ</li>
+<li>Redis</li>
+<li>Zookeeper</li>
+</ul>
+<h2 id="第二章-Spring微服务实战"><a href="#第二章-Spring微服务实战" class="headerlink" title="第二章 Spring微服务实战"></a>第二章 Spring微服务实战</h2><p>SpringCloud的注册中心Eureka</p>
+<p>每个系统在启动的时候首先是要向注册中心注册自己的信息，比如IP地址、端口号。有了注册中心以后，当订单系统想要去调用其他系统的时候，就可以从注册中心拉取相关系统的信息，然后进行通信。</p>
+<p>订单系统通过SpringCloud内置的RPC框架Feign与其他系统进行http通信。</p>
+<p>Ribbon进行负载均衡，选择本次请求的确切目标。</p>
+<p>Gateway网关可以从服务注册中心感知到所有微服务系统的注册表消息，页面服务器就可以与多个微服务交互。网关不仅有路由转发的功能，还能做到灰度发布、统一权限验证、流量限制。</p>
+<h2 id="第三章-容器技术"><a href="#第三章-容器技术" class="headerlink" title="第三章 容器技术"></a>第三章 容器技术</h2><p>容器技术比较流行的是Docker和K8s</p>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>解决了三个问题：1. 简化了环境的管理 2. 提供了轻量级的虚拟化 3.更好地支持程序可移植性。</p>
+<p>Docker镜像是Docker的核心组件之一，镜像是容器的基础。想安装一个容器，最先去做的就是获取其镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search nginx</span><br></pre></td></tr></table></figure>
+
+<p>拉取镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
+
+<p>查看拉取到的镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<p>删除镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi nginx/image id</span><br></pre></td></tr></table></figure>
+
+<p>对镜像导出&#x2F;导入，以进行备份和迁移：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o nginx.tar nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>执行命令后会把nginx:latest镜像导出到当前目录nginx.tar中</p>
+<p>导入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i nginx.tar</span><br></pre></td></tr></table></figure>
+
+
+
+<p>面试被问：容器和镜像的区别？</p>
+<p>各种环境在docker中都称为容器，镜像就像是安装系统的系统光盘，容器则是通过光盘安装后的操作系统。</p>
+<p><strong>镜像（Image）：</strong></p>
+<ul>
+<li>镜像是一个轻量级、独立、可执行的软件包，包含运行应用所需的所有内容，包括代码、运行时、系统工具、系统库以及设置。</li>
+<li>镜像是一个静态的文件，它包含了创建容器的基础文件系统和应用程序。</li>
+<li>镜像是只读的，一旦创建就不可更改。任何对镜像的修改都会生成一个新的镜像。</li>
+</ul>
+<p><strong>容器（Container）：</strong></p>
+<ul>
+<li>容器是镜像的运行实例。它是一个独立的、可执行的软件包，包含了运行应用的代码、运行时、系统工具、系统库以及设置，但是是在一个隔离的环境中运行。</li>
+<li>容器可以被启动、停止、删除，并且可以与其他容器或主机系统进行通信。</li>
+<li>容器是轻量级的，因为它共享主机系统的内核，并在其上运行一个隔离的用户空间。</li>
+</ul>
+<h3 id="K8s"><a href="#K8s" class="headerlink" title="K8s"></a>K8s</h3><p>由Master和Worker组成</p>
+<p>Master包含kube-apiserver、kube-scheduler、kube-controller-manager，持久化数据被保存在Etcd中</p>
+<p>Worker包含kubelet，用于管理Pod及Pod容器，并定时向Master汇报节点资源信息。kube-proxy，用于实现Service的透明代理及负载均衡，外界访问内部容器就是通过它来访问。Docker，运行容器。</p>
+<p>K8s是按照用户的意愿和整个系统的规则，完全自动化地处理容器之间的关系，这就是所谓的容器编排。</p>
+<h2 id="第四章-消息中间件"><a href="#第四章-消息中间件" class="headerlink" title="第四章 消息中间件"></a>第四章 消息中间件</h2><p>消息中间件就是具有低耦合、流量削峰、广播机制、异步化、最终一致性的一系列功能的组件。</p>
+<h3 id="同步调用"><a href="#同步调用" class="headerlink" title="同步调用"></a>同步调用</h3><p>同步就是当系统A调用B的功能时，系统A是阻塞的。各个系统之间互相依赖，一个系统发起请求，其他系统也会跟着发起请求，只有所有的系统处理完后，对于用户来说才是完成了一次请求。只要其他系统出现故障，就会导致整个请求发生异常。</p>
+<h3 id="异步调用"><a href="#异步调用" class="headerlink" title="异步调用"></a>异步调用</h3><p>系统A发生消息给中间件后，自己的工作就已经完成了，不再去管系统B什么时候完成操作。而系统B拉取消息后，执行自己的操作也可以不用告诉系统A执行结果。</p>
+<h3 id="消息中间件的作用"><a href="#消息中间件的作用" class="headerlink" title="消息中间件的作用"></a>消息中间件的作用</h3><p>异步化：给用户体验更好了，所需要等待系统回应的时间更短，提高了性能。</p>
+<p>降低耦合度</p>
+<p>流量削峰：如果没有消息中间件，在面临突然大量的请求时，系统会崩溃，例如数据库会承受不住过多的流量。有了消息中间件后，数据库可以自己控制速度读取消息，保持在一定的QPS以下。MQ中可能会积压大量消息，它本身就是允许消息积压的，并且QPS不会一直居高不下，慢慢MQ中的消息就被释放了。场景：电商秒杀、抢票。</p>
+<h3 id="常用的MQ："><a href="#常用的MQ：" class="headerlink" title="常用的MQ："></a>常用的MQ：</h3><ul>
+<li>ActiveMQ</li>
+<li>RabbitMQ</li>
+<li>Kafka</li>
+<li>RocketMQ</li>
+</ul>
+<h3 id="RocketMQ的基本架构"><a href="#RocketMQ的基本架构" class="headerlink" title="RocketMQ的基本架构"></a>RocketMQ的基本架构</h3><p>RocketMQ如何存储大量消息数据？</p>
+<p>把数据分散到多台机器存储，可以通过拓展机器存储海量数据。</p>
+<p>RocketMQ如何处理宕机？</p>
+<p>Broker主从架构及多副本策略。Master Broker收到消息后会同步给Slave Broker，此时Slave Broker就有了一份副本数据，当RocketMQ挂掉了一个Broker，还有一份副本Broker可以继续提供服务，这就保证了系统的高可用性。</p>
+<p>如何知道该访问哪个Broker？</p>
+<p>NameServer可以看作是RocketMQ的注册中心，它也是可以独立部署集群的，主要管理两部分数据：集群的Topic-Queue的路由配置和Broker的实时配置信息。其他模块通过NameServer提供的接口获取最新的Topic配置和路由信息。NameServer类似于SpringCloud里面的Eureka，每个Broker都会向它注册自己的信息。对于系统而言，要调用MQ服务，首先会去NameServer中获取路由信息，也会知道系统中有哪些Broker正在提供服务，从而确定自己应该访问哪台机器的Broker。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/28/%E3%80%8A%E5%9B%BE%E8%A7%A3HTTP%E3%80%8Bday1/" rel="prev" title="《图解HTTP》day1">
+                  <i class="fa fa-chevron-left"></i> 《图解HTTP》day1
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卓壹术姬</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

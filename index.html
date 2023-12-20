@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">13</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">40</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">41</span></a></li>
   </ul>
 </nav>
 
@@ -128,13 +128,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -300,6 +300,175 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/20/%E3%80%8A%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86RocketMQ%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B-%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/20/%E3%80%8A%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86RocketMQ%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B-%E4%B8%80/" class="post-title-link" itemprop="url">《分布式中间件核心原理RocketMQ最佳实践》(一)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-20 16:56:40 / 修改时间：16:59:37" itemprop="dateCreated datePublished" datetime="2023-12-20T16:56:40+08:00">2023-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/RocketMQ/" itemprop="url" rel="index"><span itemprop="name">RocketMQ</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+	  
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="第一章-分布式系统"><a href="#第一章-分布式系统" class="headerlink" title="第一章 分布式系统"></a>第一章 分布式系统</h2><h3 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h3><p>如果一个系统正常运行的条件是需要多个相关系统&#x2F;子系统共同协作，并且相关系统&#x2F;子系统分布在不同的服务器上，这整体就是一个分布式系统。</p>
+<p>特性：</p>
+<ul>
+<li>资源共享</li>
+<li>高内聚低耦合</li>
+</ul>
+<p>单节点的故障不会影响系统整体的运行。这就导致了使用分布式系统要考虑服务的集群，并支持主从。</p>
+<ul>
+<li>拓展性</li>
+</ul>
+<p>带来的问题：</p>
+<ol>
+<li>技术复杂</li>
+<li>网络稳定要求高</li>
+<li>集群</li>
+<li>分布式事务和分布式锁</li>
+<li>分布式下的唯一ID问题</li>
+</ol>
+<h3 id="分布式中间件"><a href="#分布式中间件" class="headerlink" title="分布式中间件"></a>分布式中间件</h3><p>分布式中间件是什么？</p>
+<ul>
+<li>就是为了解决的分布式系统架构所带来的问题。</li>
+<li>Mycat</li>
+<li>RocketMQ</li>
+<li>Redis</li>
+<li>Zookeeper</li>
+</ul>
+<h2 id="第二章-Spring微服务实战"><a href="#第二章-Spring微服务实战" class="headerlink" title="第二章 Spring微服务实战"></a>第二章 Spring微服务实战</h2><p>SpringCloud的注册中心Eureka</p>
+<p>每个系统在启动的时候首先是要向注册中心注册自己的信息，比如IP地址、端口号。有了注册中心以后，当订单系统想要去调用其他系统的时候，就可以从注册中心拉取相关系统的信息，然后进行通信。</p>
+<p>订单系统通过SpringCloud内置的RPC框架Feign与其他系统进行http通信。</p>
+<p>Ribbon进行负载均衡，选择本次请求的确切目标。</p>
+<p>Gateway网关可以从服务注册中心感知到所有微服务系统的注册表消息，页面服务器就可以与多个微服务交互。网关不仅有路由转发的功能，还能做到灰度发布、统一权限验证、流量限制。</p>
+<h2 id="第三章-容器技术"><a href="#第三章-容器技术" class="headerlink" title="第三章 容器技术"></a>第三章 容器技术</h2><p>容器技术比较流行的是Docker和K8s</p>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>解决了三个问题：1. 简化了环境的管理 2. 提供了轻量级的虚拟化 3.更好地支持程序可移植性。</p>
+<p>Docker镜像是Docker的核心组件之一，镜像是容器的基础。想安装一个容器，最先去做的就是获取其镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search nginx</span><br></pre></td></tr></table></figure>
+
+<p>拉取镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
+
+<p>查看拉取到的镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<p>删除镜像：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi nginx/image id</span><br></pre></td></tr></table></figure>
+
+<p>对镜像导出&#x2F;导入，以进行备份和迁移：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o nginx.tar nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>执行命令后会把nginx:latest镜像导出到当前目录nginx.tar中</p>
+<p>导入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i nginx.tar</span><br></pre></td></tr></table></figure>
+
+
+
+<p>面试被问：容器和镜像的区别？</p>
+<p>各种环境在docker中都称为容器，镜像就像是安装系统的系统光盘，容器则是通过光盘安装后的操作系统。</p>
+<p><strong>镜像（Image）：</strong></p>
+<ul>
+<li>镜像是一个轻量级、独立、可执行的软件包，包含运行应用所需的所有内容，包括代码、运行时、系统工具、系统库以及设置。</li>
+<li>镜像是一个静态的文件，它包含了创建容器的基础文件系统和应用程序。</li>
+<li>镜像是只读的，一旦创建就不可更改。任何对镜像的修改都会生成一个新的镜像。</li>
+</ul>
+<p><strong>容器（Container）：</strong></p>
+<ul>
+<li>容器是镜像的运行实例。它是一个独立的、可执行的软件包，包含了运行应用的代码、运行时、系统工具、系统库以及设置，但是是在一个隔离的环境中运行。</li>
+<li>容器可以被启动、停止、删除，并且可以与其他容器或主机系统进行通信。</li>
+<li>容器是轻量级的，因为它共享主机系统的内核，并在其上运行一个隔离的用户空间。</li>
+</ul>
+<h3 id="K8s"><a href="#K8s" class="headerlink" title="K8s"></a>K8s</h3><p>由Master和Worker组成</p>
+<p>Master包含kube-apiserver、kube-scheduler、kube-controller-manager，持久化数据被保存在Etcd中</p>
+<p>Worker包含kubelet，用于管理Pod及Pod容器，并定时向Master汇报节点资源信息。kube-proxy，用于实现Service的透明代理及负载均衡，外界访问内部容器就是通过它来访问。Docker，运行容器。</p>
+<p>K8s是按照用户的意愿和整个系统的规则，完全自动化地处理容器之间的关系，这就是所谓的容器编排。</p>
+<h2 id="第四章-消息中间件"><a href="#第四章-消息中间件" class="headerlink" title="第四章 消息中间件"></a>第四章 消息中间件</h2><p>消息中间件就是具有低耦合、流量削峰、广播机制、异步化、最终一致性的一系列功能的组件。</p>
+<h3 id="同步调用"><a href="#同步调用" class="headerlink" title="同步调用"></a>同步调用</h3><p>同步就是当系统A调用B的功能时，系统A是阻塞的。各个系统之间互相依赖，一个系统发起请求，其他系统也会跟着发起请求，只有所有的系统处理完后，对于用户来说才是完成了一次请求。只要其他系统出现故障，就会导致整个请求发生异常。</p>
+<h3 id="异步调用"><a href="#异步调用" class="headerlink" title="异步调用"></a>异步调用</h3><p>系统A发生消息给中间件后，自己的工作就已经完成了，不再去管系统B什么时候完成操作。而系统B拉取消息后，执行自己的操作也可以不用告诉系统A执行结果。</p>
+<h3 id="消息中间件的作用"><a href="#消息中间件的作用" class="headerlink" title="消息中间件的作用"></a>消息中间件的作用</h3><p>异步化：给用户体验更好了，所需要等待系统回应的时间更短，提高了性能。</p>
+<p>降低耦合度</p>
+<p>流量削峰：如果没有消息中间件，在面临突然大量的请求时，系统会崩溃，例如数据库会承受不住过多的流量。有了消息中间件后，数据库可以自己控制速度读取消息，保持在一定的QPS以下。MQ中可能会积压大量消息，它本身就是允许消息积压的，并且QPS不会一直居高不下，慢慢MQ中的消息就被释放了。场景：电商秒杀、抢票。</p>
+<h3 id="常用的MQ："><a href="#常用的MQ：" class="headerlink" title="常用的MQ："></a>常用的MQ：</h3><ul>
+<li>ActiveMQ</li>
+<li>RabbitMQ</li>
+<li>Kafka</li>
+<li>RocketMQ</li>
+</ul>
+<h3 id="RocketMQ的基本架构"><a href="#RocketMQ的基本架构" class="headerlink" title="RocketMQ的基本架构"></a>RocketMQ的基本架构</h3><p>RocketMQ如何存储大量消息数据？</p>
+<p>把数据分散到多台机器存储，可以通过拓展机器存储海量数据。</p>
+<p>RocketMQ如何处理宕机？</p>
+<p>Broker主从架构及多副本策略。Master Broker收到消息后会同步给Slave Broker，此时Slave Broker就有了一份副本数据，当RocketMQ挂掉了一个Broker，还有一份副本Broker可以继续提供服务，这就保证了系统的高可用性。</p>
+<p>如何知道该访问哪个Broker？</p>
+<p>NameServer可以看作是RocketMQ的注册中心，它也是可以独立部署集群的，主要管理两部分数据：集群的Topic-Queue的路由配置和Broker的实时配置信息。其他模块通过NameServer提供的接口获取最新的Topic配置和路由信息。NameServer类似于SpringCloud里面的Eureka，每个Broker都会向它注册自己的信息。对于系统而言，要调用MQ服务，首先会去NameServer中获取路由信息，也会知道系统中有哪些Broker正在提供服务，从而确定自己应该访问哪台机器的Broker。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/28/%E3%80%8A%E5%9B%BE%E8%A7%A3HTTP%E3%80%8Bday1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -330,7 +499,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-10-28 21:22:39 / 修改时间：21:25:55" itemprop="dateCreated datePublished" datetime="2023-10-28T21:22:39+08:00">2023-10-28</time>
+      <time title="创建时间：2023-10-28 21:22:39 / 修改时间：21:44:07" itemprop="dateCreated datePublished" datetime="2023-10-28T21:22:39+08:00">2023-10-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -355,9 +524,8 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h1><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h3><p>很多人容易将IP与IP地址搞混，其实IP是指IP协议。IP协议的作用是把各种数据包传送给对方，为了保证传送，需要满足的条件是IP地址和MAC地址。</p>
 <blockquote>
-<p>IP地址：指明了节点被分配的地址，可以理解成一个Wi-Fi下的各个设备。</p>
+<p>IP地址：IP地址是IP协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。</p>
 <p>MAC地址：指网卡所属的固定地址，可以理解成一个设备的唯一名字。</p>
-<p>IP地址是可意变换的，但MAC地址基本上不会改变。</p>
 </blockquote>
 <h3 id="ARP协议是什么？"><a href="#ARP协议是什么？" class="headerlink" title="ARP协议是什么？"></a>ARP协议是什么？</h3><p>在网络中，一般不会有通信的双方直接进行网络传输，他们中间可能会有交换机。那么在网络传输过程中是如何找到对方呢？在进行中转时，会利用下一站中转设备的MAC地址来搜索下一个目标，就需要ARP协议。这是一个用于解析地址的协议，根据通信方的IP地址就可以查出对应的MAC地址。可以理解为ARP协议就是快递运输过程中，中转站要查询的下一站。</p>
 <hr>
@@ -1025,108 +1193,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/21/%E5%85%B3%E4%BA%8ETOPk%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓今天debug了吗">
-      <meta itemprop="description" content="一个记录成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/21/%E5%85%B3%E4%BA%8ETOPk%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">用堆解决TOPk问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-21 20:14:07 / 修改时间：20:51:46" itemprop="dateCreated datePublished" datetime="2022-10-21T20:14:07+08:00">2022-10-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-	  
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="用堆解决TOPk问题"><a href="#用堆解决TOPk问题" class="headerlink" title="用堆解决TOPk问题"></a>用堆解决TOPk问题</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-largest-element-in-an-array/">leetcode.215</a></p>
-<p>这道题是说找到所给数字中第k大的数，比如我们给出3, 2, 1, 5, 6, 4，k &#x3D; 2，所返回的结果应该是5</p>
-<p>遇到这类问题除了想到sort，我们还可以用一个堆来解决。</p>
-<p>在C++的STL中，可以用priority_queue来表示一个堆。</p>
-<p>但是为了增加对堆的理解，我们试着手写一个简单的堆。</p>
-<p>因为是求<strong>前k大</strong>的数，这里可以写一个大根堆</p>
-<p>建堆的过程如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(n)</span> </span>&#123; <span class="comment">// n表示有多少个数</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123; <span class="comment">// i从1开始的原因是，堆的左儿子为 i*2，右儿子为 i*2+1，如果为0就无效了</span></span><br><span class="line">		cin &gt;&gt; h[i];</span><br><span class="line">	&#125;</span><br><span class="line">	hsize = n;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 此时只是输入了数据，我们要开始建一个堆了</span></span><br><span class="line"><span class="comment">// 为了调整堆，可以从n / 2开始，也就是最下层节点的上面所有数，将这些数down下去，因为最下层下面没有数了，所以可以不管</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = n / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">		<span class="built_in">down</span>(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 上面操作完成以后，一个大根堆就实现啦！</span></span><br></pre></td></tr></table></figure>
-
-<p>下面是关键步骤：交换（父节点比儿子节点小的位置）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t = u;</span><br><span class="line">	<span class="keyword">if</span>(u * <span class="number">2</span> &lt;= hsize &amp;&amp; h[t] &lt; h[u * <span class="number">2</span>]) t = u * <span class="number">2</span>; <span class="comment">//如果父节点小于儿子，把它们压下去</span></span><br><span class="line">	<span class="keyword">if</span>(u * <span class="number">2</span> + <span class="number">1</span> &lt;= hsize &amp;&amp; h[t] &lt; h[u * <span class="number">2</span> + <span class="number">1</span>]) t = u * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(t != u) &#123;</span><br><span class="line">		<span class="built_in">swap</span>(h[t], h[u]);</span><br><span class="line">		<span class="built_in">down</span>(t);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>完整代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> h[<span class="number">100010</span>];</span><br><span class="line">    <span class="type">int</span> hsize;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> t = u;</span><br><span class="line">        <span class="keyword">if</span>(u * <span class="number">2</span> &lt;= hsize &amp;&amp; h[t] &lt; h[u * <span class="number">2</span>]) t = u * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(u * <span class="number">2</span> + <span class="number">1</span> &lt;= hsize &amp;&amp; h[t] &lt; h[u * <span class="number">2</span> + <span class="number">1</span>]) t = u * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(t != u) &#123;</span><br><span class="line">            <span class="built_in">swap</span>(h[t], h[u]);</span><br><span class="line">            <span class="built_in">down</span>(t);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findKthLargest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        hsize = nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= hsize; i++) &#123;</span><br><span class="line">            h[i] = nums[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = hsize / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">            <span class="built_in">down</span>(i);</span><br><span class="line">        &#125;   </span><br><span class="line">        </span><br><span class="line">    <span class="comment">// 我们现在需要做的就是查找第k个数</span></span><br><span class="line">	<span class="comment">// 只需要删除k - 1次根节点就好</span></span><br><span class="line">	</span><br><span class="line">        k--;</span><br><span class="line">        <span class="keyword">while</span>(k--) &#123;</span><br><span class="line">            h[<span class="number">1</span>] = h[hsize];</span><br><span class="line">            hsize--;</span><br><span class="line">            <span class="built_in">down</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> h[<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>那如果是前k小的数呢？我们在这时也可以用<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/840/">堆排序</a></p>
-<p>思路和力扣的题是一样的，我们只需要换成<strong>小根堆</strong>就好啦</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> h[N], hsize;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> t = u;</span><br><span class="line">    <span class="keyword">if</span>(u * <span class="number">2</span> &lt;= hsize &amp;&amp; h[t] &gt; h[u * <span class="number">2</span>]) t = u * <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(u * <span class="number">2</span> + <span class="number">1</span> &lt;= hsize &amp;&amp; h[t] &gt; h[u * <span class="number">2</span> + <span class="number">1</span>]) t = u * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(t != u) &#123;</span><br><span class="line">        <span class="built_in">swap</span>(h[t], h[u]);</span><br><span class="line">        <span class="built_in">down</span>(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; h[i];</span><br><span class="line">    &#125;</span><br><span class="line">    hsize = n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        <span class="built_in">down</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(m--) &#123;</span><br><span class="line">        cout &lt;&lt; h[<span class="number">1</span>] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        h[<span class="number">1</span>] = h[hsize];</span><br><span class="line">        hsize--;</span><br><span class="line">        <span class="built_in">down</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
