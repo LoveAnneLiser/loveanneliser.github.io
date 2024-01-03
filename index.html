@@ -83,7 +83,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">15</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">43</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">15</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">44</span></a></li>
   </ul>
 </nav>
 
@@ -128,7 +128,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -258,6 +258,92 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/03/leetcode-2487-%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E8%8A%82%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.gif">
+      <meta itemprop="name" content="卓壹术姬">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小卓今天debug了吗">
+      <meta itemprop="description" content="一个记录成长的网页">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/03/leetcode-2487-%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E8%8A%82%E7%82%B9/" class="post-title-link" itemprop="url">leetcode 2487. 从链表中移除节点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-03 13:05:52 / 修改时间：13:13:09" itemprop="dateCreated datePublished" datetime="2024-01-03T13:05:52+08:00">2024-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+	  
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><img src="https://zhuoyi-image.oss-cn-qingdao.aliyuncs.com/img/20240103130639.png"/>
+
+
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题可以用一个栈解决，依次将节点放入栈中，越顶上的节点就是链表越右端的节点。根据题目描述，其实这道题就是要找到数字大（它左边的数如果小的话，移除掉，转换为栈就是：<strong>栈顶元素比新链表的头值大的话，加入新链表头节点</strong>）的节点，然后从这个节点开始递减去连接链表。最后的链表就是一个不递增的序列。 </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNodes</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        stack&lt;ListNode*&gt; st;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 构建出栈，然后有了一个新链表head,此时指向nullptr</span></span><br><span class="line">        <span class="keyword">for</span>(; head != <span class="literal">nullptr</span>; head = head-&gt;next) &#123;</span><br><span class="line">            st.<span class="built_in">push</span>(head);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 开始从栈里取数据</span></span><br><span class="line">        <span class="keyword">for</span>(; !st.<span class="built_in">empty</span>(); st.<span class="built_in">pop</span>()) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 栈顶元素比新链表的头值大的话，加入新链表头节点</span></span><br><span class="line">            <span class="keyword">if</span>(head == <span class="literal">nullptr</span> || st.<span class="built_in">top</span>()-&gt;val &gt;= head-&gt;val)&#123;</span><br><span class="line">                st.<span class="built_in">top</span>()-&gt;next = head; <span class="comment">// 头插法</span></span><br><span class="line">                head = st.<span class="built_in">top</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -1398,88 +1484,6 @@
 <p>我们在《数据库系统概念》的第二章可以看到关系代数的具体写法，可以发现这些语句就是能清楚的知道查询的数据以及如何获取这些数据。</p>
 <p>非过程化的DML，称为关系运算，它不用很仔细的写出如何获取这些数据，正所谓给的方法越少数据库越好查询？</p>
 <p>我们平时使用的mysql就是这种非过程化的DML。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/27/24%E5%B1%8A%E8%8F%9C%E9%B8%A1%E7%9A%84%E6%98%A5%E6%8B%9B%E5%87%86%E5%A4%87-%E4%B8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.gif">
-      <meta itemprop="name" content="卓壹术姬">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小卓今天debug了吗">
-      <meta itemprop="description" content="一个记录成长的网页">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 小卓今天debug了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/27/24%E5%B1%8A%E8%8F%9C%E9%B8%A1%E7%9A%84%E6%98%A5%E6%8B%9B%E5%87%86%E5%A4%87-%E4%B8%80/" class="post-title-link" itemprop="url">一些想法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-27 17:29:52 / 修改时间：17:42:31" itemprop="dateCreated datePublished" datetime="2022-10-27T17:29:52+08:00">2022-10-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%9D%82/" itemprop="url" rel="index"><span itemprop="name">杂</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-	  
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今年的4月初开始从头学习，到现在也有半年了，这半年的生活不像大一和大二上那样疯狂，更多的是稳重。这半年来，不像以前那样贪睡，更多的是早起学习，写代码也经常写得废寝忘食。以前在力扣上写一道题时，通常都要看题解写1小时，现在可能一道题10分钟就能ac掉，(当然hard题另说 :D</p>
-<p>想想半年前的自己，连ssh都不知道，真的好菜。很感谢当初的自己，从舒适区慢慢地走出来，一点点尝试，多去问多去了解多去学习，虽然这一路上也没少走弯路，但确实是进步不少。</p>
-<p>看到今年的就业形势如此严峻，不由得吸一口冷气，没想到寒冬来的这么快。自己深处寒冬之中，唯一能做的就是不要躺平，保持学习，有一个良好的心态，也要想当初自己最想做的是什么，加油吧。</p>
 
       
     </div>
